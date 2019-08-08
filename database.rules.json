@@ -1,0 +1,63 @@
+{
+  "rules": {
+   "users":{
+    ".read": "auth != null",
+    ".write": "auth != null",
+   } ,
+      "appointments":{
+    ".read": "auth != null",
+    ".write": "auth != null",
+   } ,
+     "applications":{
+    ".read": "auth != null",
+    ".write": "auth != null",
+   } ,
+     "services":{
+    ".read": true,
+    ".write": false
+   } ,
+      "cleanerQue":{
+    ".read": true,
+    ".write": "auth != null",
+   },
+     "appointmentQue":{
+    ".read": true,
+    ".write": "auth != null",
+   } ,
+   "settings": {
+        ".read": true,
+    ".write": true
+  },
+  "media": {
+    "$id": {
+      ".write": "auth != null && root.child('users').child(auth.uid).child('role').val() === 'admin' ",
+      ".read":true
+    },
+    ".read":true,
+    ".write":true,
+  },
+  "nav": {
+        ".read": true,
+    		".write": true
+  },
+  "fields": {
+        ".read": true,
+    ".write": true
+  },
+  "contents": {
+        ".read": true,
+    ".write": true
+  },
+  "routes": {
+       ".read": true,
+    ".write": true
+  },
+  "other": {
+       ".read": true,
+    ".write": true
+  }
+
+
+
+      }
+}

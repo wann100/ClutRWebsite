@@ -20,14 +20,9 @@
             <div class="container has-text-centered">
               <div class="titleAdmin">
                 <h1 class="title">
-                  Welcome to Tamiat CMS
+                  Welcome to ClutR admin panel
                 </h1>
               </div>
-              <h2 class="subtitle">
-                <a href="https://github.com/tamiat/tamiat" target="_blank">
-                  <span style="font-size: 25px;font-weight: bold">GitHub</span>
-                </a>
-              </h2>
               <router-link to="/">
                 <!-- <img src="/static/img/logo.png" alt="Tamiat CMS logo"> -->
                 <div>

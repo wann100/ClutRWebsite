@@ -1,8 +1,8 @@
 {
-  "name": "tamiat",
+  "name": "CLUTRWebsite",
   "version": "0.3.0",
-  "description": "Tamiat CMS",
-  "author": "Mahmoud_Nouman <mahmoud@nouman.com>",
+  "description": "The website for the app",
+  "author": "Mamadou Wann mwann@kognos.co",
   "private": true,
   "scripts": {
     "dev": "vue-cli-service serve",
@@ -15,7 +15,7 @@
     "firebase": "^6.3.4",
     "font-awesome": "^4.7.0",
     "moment": "^2.22.2",
-    "vue": "^2.5.17",
+    "vue": "^2.6.10",
     "vue-loading-overlay": "^3.2.0",
     "vue-notification": "^1.3.16",
     "vue-quill-editor": "^3.0.6",

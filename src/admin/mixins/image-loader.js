@@ -1,4 +1,4 @@
-// USED BY TAMIAT CMS
+
 
 import firebase from 'firebase/app'
 import 'firebase/storage'

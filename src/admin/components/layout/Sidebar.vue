@@ -84,7 +84,7 @@ export default {
       ],
       helpbtn: {
         name: 'Help',
-        path: 'https://github.com/tamiat/tamiat/blob/master/README.md',
+        path: 'https://github.com/wann100/ClutRWebsite/blob/master/README.md',
         icon: 'fa-question'
       }
     }

@@ -16,6 +16,7 @@ const mediaRef = db.ref('media')
 const navRef = db.ref('nav')
 const contentsRef = db.ref('contents')
 const fieldsRef = db.ref('fields')
-
+const usersRef = db.ref('users')
+const applicationsRef = db.ref('applications')
 const routesRef = db.ref('routes')
 export { settingsRef, mediaRef, navRef, routesRef, contentsRef, fieldsRef, db }

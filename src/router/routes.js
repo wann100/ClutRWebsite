@@ -5,6 +5,8 @@ import Home from '@/app/pages/Home'
 import Admin from '@/admin/pages/Admin'
 import Login from '@/admin/pages/Login'
 import Settings from '@/admin/pages/settings/Settings'
+import Users from '@/admin/pages/Users'
+import Applications from '@/admin/pages/Applications'
 import Routing from '@/admin/pages/Routing'
 import Media from '@/admin/pages/Media'
 import Database from '@/admin/pages/Database'
@@ -34,6 +36,14 @@ const routes = [
       {
         path: 'settings',
         component: Settings
+      },
+      {
+        path: 'applications',
+        component: Applications
+      },
+      {
+        path: 'users',
+        component: Users
       },
       {
         path: 'routing',

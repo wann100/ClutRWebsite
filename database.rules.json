@@ -1,20 +1,20 @@
 {
   "rules": {
    "users":{
-    ".read": "auth != null",
-    ".write": "auth != null",
+     ".read": "auth != null && (root.child('users').child(auth.uid).child('userDetails/uid').val() === auth.uid ||root.child('users').child(auth.uid).child('userDetails/role').val() =='admin') ",
+    ".write":"auth != null"
    } ,
       "appointments":{
     ".read": "auth != null",
     ".write": "auth != null",
    } ,
      "applications":{
-    ".read": "auth != null",
+     ".read": "auth != null && (root.child('users').child(auth.uid).child('userDetails/uid').val() === auth.uid ||root.child('users').child(auth.uid).child('userDetails/role').val() =='admin') ",
     ".write": "auth != null",
    } ,
      "services":{
     ".read": true,
-    ".write": false
+    ".write": "auth != null && root.child('users').child(auth.uid).child('userDetails/role').val() =='admin' "
    } ,
       "cleanerQue":{
     ".read": true,
@@ -26,11 +26,11 @@
    } ,
    "settings": {
         ".read": true,
-    ".write": true
+        ".write": "auth != null && root.child('users').child(auth.uid).child('userDetails/role').val() =='admin' "
   },
   "media": {
     "$id": {
-      ".write": "auth != null && root.child('users').child(auth.uid).child('role').val() === 'admin' ",
+      ".write": "auth != null && root.child('users').child(auth.uid).child('role').val() ==='admin' ",
       ".read":true
     },
     ".read":true,

@@ -76,6 +76,14 @@ export default {
         {
           name: 'Settings',
           path: '/admin/settings'
+        },
+                {
+          name: 'Applications',
+          path: '/admin/applications'
+        },
+        {
+          name: 'Users',
+          path: '/admin/users'
         }
       ]
     }

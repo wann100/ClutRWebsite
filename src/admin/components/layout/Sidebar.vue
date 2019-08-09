@@ -80,6 +80,16 @@ export default {
           name: 'Settings',
           path: '/admin/settings',
           icon: 'fa-gear'
+        },
+                {
+          name: 'Users',
+          path: '/admin/users',
+          icon: 'fa-id-card-o'
+        },
+                        {
+          name: 'Applications',
+          path: '/admin/applications',
+          icon: 'fa-file-o'
         }
       ],
       helpbtn: {

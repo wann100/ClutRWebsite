@@ -1,2 +1,2 @@
-export * from './UserActions';
-export * from './ApplicationActions';
+export * from './UserAction';
+export * from './ApplicationAction';

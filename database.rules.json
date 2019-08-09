@@ -1,16 +1,23 @@
 {
   "rules": {
    "users":{
-     ".read": "auth != null && (root.child('users').child(auth.uid).child('userDetails/uid').val() === auth.uid ||root.child('users').child(auth.uid).child('userDetails/role').val() =='admin') ",
-    ".write":"auth != null"
+      ".read": "auth != null && root.child('users').child(auth.uid).child('userDetails/role').val() =='admin'",
+    "$uid": {
+       ".read": "$uid === auth.uid || root.child('users').child(auth.uid).child('userDetails/role').val() =='admin'",
+       ".write": "$uid === auth.uid || root.child('users').child(auth.uid).child('userDetails/role').val() =='admin'"
+     }
+
    } ,
       "appointments":{
     ".read": "auth != null",
     ".write": "auth != null",
    } ,
      "applications":{
-     ".read": "auth != null && (root.child('users').child(auth.uid).child('userDetails/uid').val() === auth.uid ||root.child('users').child(auth.uid).child('userDetails/role').val() =='admin') ",
-    ".write": "auth != null",
+      ".read": "auth != null && root.child('users').child(auth.uid).child('userDetails/role').val() =='admin'",
+    "$id": {
+       ".read": "$id === auth.uid || root.child('users').child(auth.uid).child('userDetails/role').val() =='admin'",
+       ".write": "$id === auth.uid || root.child('users').child(auth.uid).child('userDetails/role').val() =='admin'"
+     }
    } ,
      "services":{
     ".read": true,
@@ -30,31 +37,31 @@
   },
   "media": {
     "$id": {
-      ".write": "auth != null && root.child('users').child(auth.uid).child('role').val() ==='admin' ",
+      ".write": "auth != null && root.child('users').child(auth.uid).child('userDetails/role').val() ==='admin' ",
       ".read":true
     },
     ".read":true,
-    ".write":true,
+      ".write": "auth != null && root.child('users').child(auth.uid).child('userDetails/role').val() ==='admin' ",
   },
   "nav": {
         ".read": true,
-    		".write": true
+    	  ".write": "auth != null && root.child('users').child(auth.uid).child('userDetails/role').val() ==='admin' ",
   },
   "fields": {
         ".read": true,
-    ".write": true
+     ".write": "auth != null && root.child('users').child(auth.uid).child('userDetails/role').val() ==='admin' ",
   },
   "contents": {
         ".read": true,
-    ".write": true
+      ".write": "auth != null && root.child('users').child(auth.uid).child('userDetails/role').val() ==='admin' ",
   },
   "routes": {
        ".read": true,
-    ".write": true
+     ".write": "auth != null && root.child('users').child(auth.uid).child('userDetails/role').val() ==='admin' ",
   },
   "other": {
        ".read": true,
-    ".write": true
+      ".write": "auth != null && root.child('users').child(auth.uid).child('userDetails/role').val() ==='admin' ",
   }
 
 

@@ -14,30 +14,37 @@
         <div class="column">
         <input class="searchbox" type="text" placeholder="Search..">
 
- <!-- how you get the userimage {{ this.applications[0].Idurl[0] }} !-->
-      {{ this.applications[0] }}
-       <div class="columns">
-         <div class="column" style="margin:50px">
-           <h3>Name: {{this.applications[0].applicationinfo.name}}</h3>
-           <h3>DOB: {{this.applications[0].applicationinfo.dob}}</h3>
-           <h3>SSN:{{this.applications[0].applicationinfo.ssn}}</h3>
-           <h3>Team Size:{{this.applications[0].applicationinfo.num_team}}</h3>
+ <a class="img-container" v-for="(item, key) in this.applications" :key="key" >
+
+   
+         <div class="columns">
+         <div class="column" style="margin:10px">
+           <h3>Name: {{item.applicationinfo.name}}</h3>
+           <h3>DOB: {{item.applicationinfo.dob}}</h3>
+           <h3>SSN:{{item.applicationinfo.ssn}}</h3>
+           <h3>Team Size:{{item.applicationinfo.num_team}}</h3>
 
          </div>
          <div class="column">
            <h1 style="margin:10px">Front of Id</h1>
-        <img class="idbox"  :src="this.applications[1].Idurl[1]" />
+        <img class="idbox"  :src="item.Idurl[1]" />
         </div>
          <div class="column">
            <h1 style="margin:10px" >Back of Id</h1>
-         <img class="idbox" :src="this.applications[1].Idurl[0]" />
+         <img class="idbox" :src="item.Idurl[0]" />
          </div>
          </div>
-    </div>
+  
+      </a>
+
     
         </div>
       </div>
     </div>
+
+
+</div>
+
 </template>
 
 <script>

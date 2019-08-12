@@ -131,8 +131,8 @@ export function updateUserDetails(currentUseruid) {
   }
 }
 
-export function userDetailsFetch(return_this) {
-  return_this = [];
+export function userDetailsFetch() {
+  var return_this = [];
   var currentUser = firebase.auth().currentUser;
   var userRef = firebase.database().ref("/users/");
   //console.log("hi")
@@ -153,3 +153,15 @@ export function userDetailsFetch(return_this) {
 
   return return_this;
 }
+export function getUser(userid) {
+   var return_this = [];
+    var currentUser = firebase.auth().currentUser;
+    var userRef =   firebase.database().ref(`/users/${currentUser.uid}/userDetails`) ;
+    userRef.on("value", snapshot => {
+
+        return_this.push(snapshot.val());
+}  );
+  
+    return return_this;
+  }
+  

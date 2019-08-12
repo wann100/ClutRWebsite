@@ -6,7 +6,7 @@ export function getAppointments(){
     var userRef = firebase.database().ref("/appointments/");
     userRef.on("value", snapshot => {
       snapshot.forEach(childSnapshot => {
-  
+           // console.log(childSnapshot.val());
           return_this.push(childSnapshot.val());
       });
     });

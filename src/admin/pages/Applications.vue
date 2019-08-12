@@ -16,8 +16,23 @@
 
  <!-- how you get the userimage {{ this.applications[0].Idurl[0] }} !-->
       {{ this.applications[0] }}
-        <img :src="this.applications[1].Idurl[1]" />
-         <img :src="this.applications[1].Idurl[0]"  style="width:40px,height:50px"/>
+       <div class="columns">
+         <div class="column" style="margin:50px">
+           <h3>Name: {{this.applications[0].applicationinfo.name}}</h3>
+           <h3>DOB: {{this.applications[0].applicationinfo.dob}}</h3>
+           <h3>SSN:{{this.applications[0].applicationinfo.ssn}}</h3>
+           <h3>Team Size:{{this.applications[0].applicationinfo.num_team}}</h3>
+
+         </div>
+         <div class="column">
+           <h1 style="margin:10px">Front of Id</h1>
+        <img class="idbox"  :src="this.applications[1].Idurl[1]" />
+        </div>
+         <div class="column">
+           <h1 style="margin:10px" >Back of Id</h1>
+         <img class="idbox" :src="this.applications[1].Idurl[0]" />
+         </div>
+         </div>
     </div>
     
         </div>
@@ -93,6 +108,12 @@ export default {
 button {
   vertical-align: middle !important;
   margin-left: 30px;
+}
+
+.idbox{
+  width:250px;
+  height:250px;
+
 }
 
 .searchbox {

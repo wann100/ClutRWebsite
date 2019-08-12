@@ -9,10 +9,10 @@ export function getApplications(){
     var return_this = [];
     var userRef = firebase.database().ref("/applications/");
     userRef.on("value", snapshot => {
-        console.log("hi");
+      //  console.log("hi");
       
       snapshot.forEach(childSnapshot => {
-            console.log(childSnapshot.key);
+         //   console.log(childSnapshot.key);
           var objecttoreturn={applicationinfo:childSnapshot.val().applicationDetails,Idurl:downloadApplicationImages(childSnapshot.key)};
         // console.log(objecttoreturn);
           return_this.push(objecttoreturn);

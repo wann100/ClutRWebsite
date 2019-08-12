@@ -8,16 +8,15 @@
       </div>
     </transition>
 
-    <h2>APPLICATIONS</h2>
+    <h2>Appointments</h2>
     <div class="box">
       <div class="columns">
         <div class="column">
         <input class="searchbox" type="text" placeholder="Search..">
 
  <!-- how you get the userimage {{ this.applications[0].Idurl[0] }} !-->
-      {{ this.applications[0] }}
-        <img :src="this.applications[1].Idurl[1]" />
-         <img :src="this.applications[1].Idurl[0]"  style="width:40px,height:50px"/>
+      {{ this.appointments[0] }}
+
     </div>
     
         </div>
@@ -29,7 +28,7 @@
 import firebase from "firebase/app";
 import "firebase/storage";
 import { demoData } from "@/../tamiat.config.json";
-import {getApplications,downloadApplicationImages} from "@/../actions"
+import {getAppointments} from "@/../actions"
 import notifier from "@/admin/mixins/notifier";
 import {
   settingsRef,
@@ -45,7 +44,7 @@ import _ from "lodash";
 export default {
   data() {
     return { 
-        applications:null,
+        appointments:null,
         currentUser: firebase.auth().currentUser,
 
 
@@ -62,22 +61,29 @@ export default {
   mixins: [notifier],
   methods: {
 
-    getApplications(){
+    getAllAppointments(){
 
-        this.applications = getApplications();
+        this.appointments = getAppointments();
        // console.log(this.users);
         if(this.applications!=null){
-            this.showNotification('success', 'applications have been downloaded')
+            this.showNotification('success', 'appointments have been downloaded')
         }
 
     },
-    ApproveApplication(){
+    ApproveAppointments(){
+
+    },
+
+        SearchForAppointment(search_criteria){
+
+    },
+    FilterFunction(filter_criteria){
 
     },
 
   },
    beforeMount(){
-    this.getApplications()
+    this.getAllAppointments()
  },
 };
 </script>

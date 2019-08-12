@@ -86,11 +86,17 @@ export default {
           path: '/admin/users',
           icon: 'fa-id-card-o'
         },
+        
                         {
           name: 'Applications',
           path: '/admin/applications',
           icon: 'fa-file-o'
-        }
+        },
+                {
+          name: 'Appointments',
+          path: '/admin/appointments',
+          icon: 'fa-calendar'
+        },
       ],
       helpbtn: {
         name: 'Help',

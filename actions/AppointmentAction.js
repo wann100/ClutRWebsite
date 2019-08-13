@@ -1,13 +1,17 @@
 import firebase from "firebase/app";
 import "firebase/storage";
 
-export function getAppointments(){
+export function getAppointments(condition){
     var return_this = [];
     var userRef = firebase.database().ref("/appointments/");
     userRef.on("value", snapshot => {
       snapshot.forEach(childSnapshot => {
            // console.log(childSnapshot.val());
-          return_this.push(childSnapshot.val());
+           if(childSnapshot.val().status!=condition){
+
+            return_this.push(childSnapshot.val());
+           }
+          
       });
     });
   

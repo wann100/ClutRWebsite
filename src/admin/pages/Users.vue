@@ -13,11 +13,49 @@
       <div class="columns">
         <div class="column">
         <input class="searchbox" type="text" placeholder="Search..">
-
-  {{ this.users }}
-    </div>
-    
         </div>
+        </div>
+<a class="img-container" v-for="(item, key) in users" :key="key"   >
+<!--  This is how you create a collapsible list using the key and array !-->
+         <b-button    v-b-toggle="'collapse-'+key"  variant="primary">View: {{item.userDetails.firstname+item.userDetails.lastname}}</b-button>       
+   <b-collapse    :id="'collapse-'+key"  >
+    <b-card>
+ <div class="columns">
+    <h4 style="margin-top:4%">Userinfo</h4>
+     
+        <div class="column">
+          <h6>First Name</h6>
+         
+          <quick-edit @input="updateUser(item.userDetails,'firstname',item.userDetails.firstname)" v-model="item.userDetails.firstname"></quick-edit>
+          
+     </div>
+    <div class="column">
+  <h6>Last Name</h6>
+   <quick-edit  @input="updateUser(item.userDetails,'lastname',item.userDetails.lastname)" v-model="item.userDetails.lastname"></quick-edit>
+   </div>
+      <div class="column">
+  <h6>Phone </h6>
+ <quick-edit @input="updateUser(item.userDetails,'phone',item.userDetails.phone)"   v-model="item.userDetails.phone"></quick-edit>
+   </div>
+       <div class="column">
+  <h6>Email </h6>
+ <h6>{{item.userDetails.email}}</h6>
+   </div>
+         <div class="column">
+  <h6>rating </h6>
+ <h6>{{item.userDetails.rating}}/5</h6>
+   </div>
+   <div class="column">
+     <h6>is a cleaner </h6>
+ <quick-edit @input="updateUser(item.userDetails,'isCleaner',item.userDetails.isCleaner)"     type="boolean" v-model="item.userDetails.isCleaner"></quick-edit>
+   </div>
+    
+     </div>
+      </b-card></b-collapse> </a>
+
+
+     </div>
+    
       </div>
     </div>
 </template>
@@ -28,6 +66,7 @@ import "firebase/storage";
 import { demoData } from "@/../tamiat.config.json";
 import {updateUserDetails,userDetailsFetch} from "@/../actions"
 import notifier from "@/admin/mixins/notifier";
+import QuickEdit from 'vue-quick-edit';
 import {
   settingsRef,
   mediaRef,
@@ -57,6 +96,7 @@ export default {
     routes: routesRef
   },
   mixins: [notifier],
+  components: { QuickEdit },
   methods: {
 
     getusers(){
@@ -69,48 +109,13 @@ export default {
 
 
     },
-    updateUser(){
+    updateUser(currentUser,whichdetails,details){
+      console.log("i got challed");
+      updateUserDetails(currentUser,whichdetails,details);
+      this.getusers()
 
     },
-    addDemoContentsData() {
-      let storageRef = firebase.storage().ref();
-      Object.keys(this.demoContentsData).map(key => {
-        let hashKey = _.find(this.contents, { name: key })[".key"];
 
-        this.demoContentsData[key].map(content => {
-          let imageName = content.title ? `tamiat-${content.title}.png` : `tamiat-${content.author}.png`;
-          let ImageRef = storageRef.child("images/" + imageName);
-          let imgDownloadURL = "";
-          //if condition prevents the function from uploading an empty file when demo content does not have img property(Post, News...) Othervise it will upload a text/html file instead of an image since the promise returned undefined and the browser will say that the image was blocked by CORB (since it is a text/html file)
-          
-          if(!content.img){
-            content.img = "https://raw.githubusercontent.com/tamiat/tamiat/master/src/app/assets/img/coast.jpg"
-            }
-          this.fetchBlob(content.img)
-            .then(blob => {
-              return ImageRef.put(blob);
-            })
-            .then(snapshot => {
-              return snapshot.ref.getDownloadURL();
-            })
-            .then(downloadURL => {
-              imgDownloadURL = downloadURL;
-              content.created = Date.now();
-              content.img = imgDownloadURL;
-              return this.$firebaseRefs.contents
-                .child(hashKey + "/data")
-                .push(content);
-            })
-            .then(() => {
-              return this.$firebaseRefs.media.push({
-                name: imageName,
-                path: ImageRef.fullPath,
-                src: imgDownloadURL
-              });
-            });
-        });
-      });
-    },
 
   },
    beforeMount(){
@@ -136,5 +141,9 @@ button {
     width:40%;
     font-weight: bold;
     border-radius: 5px
+}
+input{
+  width:80%,
+
 }
 </style>

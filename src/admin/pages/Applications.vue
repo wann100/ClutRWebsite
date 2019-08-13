@@ -17,7 +17,7 @@
  <div>
  
 </div>
- <a class="img-container" v-for="(item, key) in this.applications" :key="key"   >
+ <a class="img-container" v-for="(item, key) in applications" :key="key"   >
 <!--  This is how you create a collapsible list using the key and array !-->
          <b-button    v-b-toggle="'collapse-'+key"  variant="primary">View/Approve: {{item.applicationinfo.name}}</b-button>       
    <b-collapse    :id="'collapse-'+key"  >

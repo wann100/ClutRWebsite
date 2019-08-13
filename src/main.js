@@ -5,6 +5,7 @@ import VueFire from 'vuefire'
 import VueQuillEditor from 'vue-quill-editor'
 import Notifications from 'vue-notification'
 import BootstrapVue from 'bootstrap-vue'
+import QuickEdit from 'vue-quick-edit';
 // import external stylesheets
 import 'font-awesome/css/font-awesome.min.css'
 
@@ -23,6 +24,7 @@ Vue.use(VueQuillEditor)
 Vue.use(Notifications)
 Vue.use(BootstrapVue)
 Vue.use(LayoutPlugin)
+Vue.component('quick-edit', QuickEdit)
 Vue.config.productionTip = false
 
 new Vue({

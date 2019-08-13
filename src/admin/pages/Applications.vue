@@ -29,6 +29,7 @@
            <h3>DOB: {{item.applicationinfo.dob}}</h3>
            <h3>SSN:{{item.applicationinfo.ssn}}</h3>
            <h3>Team Size:{{item.applicationinfo.num_team}}</h3>
+           <h3>Status:{{item.applicationinfo.status}}</h3>
             <b-button variant="primary" @click="ApproveApplication(getuserinfo(item.applicationinfo.id),'isCleaner',true)" >Approve </b-button>
          <b-button variant="danger" @click="DenyApplication(getuserinfo(item.applicationinfo.id),'isCleaner',false)" >Deny </b-button>
          </div>

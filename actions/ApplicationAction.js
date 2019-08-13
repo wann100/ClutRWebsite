@@ -13,7 +13,7 @@ export async function getApplications(){
       
       await snapshot.forEach(childSnapshot => {
          //   console.log(childSnapshot.key);
-         if(childSnapshot.val().applicationDetails.status == "pending"){
+         if(childSnapshot.val().applicationDetails.status == "pending" || childSnapshot.val().applicationDetails.status == "denied" ){
             var objecttoreturn={applicationinfo:childSnapshot.val().applicationDetails,Idurl:downloadApplicationImages(childSnapshot.key)};
             // console.log(objecttoreturn);
               return_this.push(objecttoreturn);

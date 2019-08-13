@@ -5,13 +5,13 @@ import "firebase/storage";
  * This function gets all the current applications
  */
 //
-export function getApplications(){
+export async function getApplications(){
     var return_this = [];
     var userRef = firebase.database().ref("/applications/");
-    userRef.on("value", snapshot => {
+   await userRef.on("value", async snapshot => {
       //  console.log("hi");
       
-      snapshot.forEach(childSnapshot => {
+      await snapshot.forEach(childSnapshot => {
          //   console.log(childSnapshot.key);
           var objecttoreturn={applicationinfo:childSnapshot.val().applicationDetails,Idurl:downloadApplicationImages(childSnapshot.key)};
         // console.log(objecttoreturn);

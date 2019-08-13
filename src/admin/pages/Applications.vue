@@ -8,21 +8,27 @@
       </div>
     </transition>
 
+
     <h2>APPLICATIONS</h2>
     <div class="box">
       <div class="columns">
         <div class="column">
         <input class="searchbox" type="text" placeholder="Search..">
-
- <a class="img-container" v-for="(item, key) in this.applications" :key="key" >
-
-   
-         <div class="columns">
+ <div>
+ 
+</div>
+ <a class="img-container" v-for="(item, key) in this.applications" :key="key"   >
+<!--  This is how you create a collapsible list using the key and array !-->
+         <b-button    v-b-toggle="'collapse-'+key"  variant="primary">View/Approve: {{item.applicationinfo.name}}</b-button>       
+   <b-collapse    :id="'collapse-'+key"  >
+    <b-card>
+       <div class="columns"  >
          <div class="column" style="margin:10px">
            <h3>Name: {{item.applicationinfo.name}}</h3>
            <h3>DOB: {{item.applicationinfo.dob}}</h3>
            <h3>SSN:{{item.applicationinfo.ssn}}</h3>
            <h3>Team Size:{{item.applicationinfo.num_team}}</h3>
+            <b-button variant="primary">Approve </b-button>
 
          </div>
          <div class="column">
@@ -35,7 +41,7 @@
          </div>
          </div>
   
-      </a>
+    </b-card></b-collapse> </a>
 
     
         </div>
@@ -69,6 +75,7 @@ export default {
     return { 
         applications:null,
         currentUser: firebase.auth().currentUser,
+        list_used_to_hide_info:[],
 
 
      };
@@ -82,14 +89,24 @@ export default {
     routes: routesRef
   },
   mixins: [notifier],
+  
   methods: {
 
-    getApplications(){
+    async gettheApplications(){
 
-        this.applications = getApplications();
+        this.applications = await getApplications();
+       // var objectcontaininghiddennornot;
+        //console.log(this.applications.length);
+        
        // console.log(this.users);
         if(this.applications!=null){
             this.showNotification('success', 'applications have been downloaded')
+            for(var i = 0, size = this.applications.length; i < size ; i++){
+          var item = {hidden:true};
+          this.list_used_to_hide_info.push(item);
+          //alert(item);
+
+        }
         }
 
     },
@@ -99,7 +116,7 @@ export default {
 
   },
    beforeMount(){
-    this.getApplications()
+    this.gettheApplications()
  },
 };
 </script>

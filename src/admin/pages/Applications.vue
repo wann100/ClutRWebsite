@@ -30,7 +30,7 @@
            <h3>SSN:{{item.applicationinfo.ssn}}</h3>
            <h3>Team Size:{{item.applicationinfo.num_team}}</h3>
             <b-button variant="primary" @click="ApproveApplication(getuserinfo(item.applicationinfo.id),'isCleaner',true)" >Approve </b-button>
-
+         <b-button variant="danger" @click="DenyApplication(getuserinfo(item.applicationinfo.id),'isCleaner',false)" >Deny </b-button>
          </div>
          <div class="column">
            <h1 style="margin:10px">Front of Id</h1>
@@ -114,16 +114,26 @@ export default {
 
     },
     /**
-     * This is called in oder to approve applcation
+     * This is called in order to approve applcation
      */
     async ApproveApplication(currentUser,whichdetails,details){
       //First update usersdetails so that they can login
-        await  updateUserDetails(currentUser,whichdetails,details);
+       console.log(currentUser[0].uid)
+        await  updateUserDetails(currentUser[0],whichdetails,details);
       //Then update the application status so that it doesnt show up on this menu
-      // console.log(currentUser[0].uid)
        await   updateApplication(currentUser[0].uid,"status",'approved');
           //Then update the screen by re loading the applications back in
           this.showNotification('success', 'Application has been approved')
+          this.gettheApplications();
+ },
+   /**
+     * This is called in order to deny applcation
+     */
+    async DenyApplication(currentUser,whichdetails,details){
+      //Then update the application status so that it doesnt show up on this menu
+       await   updateApplication(currentUser[0].uid,"status",'denied');
+          //Then update the screen by re loading the applications back in
+          this.showNotification('success', 'Application has been denied')
           this.gettheApplications();
  },
 

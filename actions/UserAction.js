@@ -163,8 +163,8 @@ export function userDetailsFetch() {
 }
 export function getUser(userid) {
    var return_this = [];
-    var currentUser = firebase.auth().currentUser;
-    var userRef =   firebase.database().ref(`/users/${currentUser.uid}/userDetails`) ;
+    //var currentUser = firebase.auth().currentUser;
+    var userRef =   firebase.database().ref(`/users/${userid}/userDetails`) ;
     userRef.on("value", snapshot => {
 
         return_this.push(snapshot.val());

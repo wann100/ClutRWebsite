@@ -13,7 +13,35 @@
     <div class="box">
       <div class="columns">
         <div class="column">
-        <input class="searchbox" type="text" placeholder="Search..">
+          <div>
+    <select v-model="filteredProperty">
+      <option value="name">name</option>
+      <option value="dob">dob</option>
+      <option value="ssn">ssn</option>
+    </select>
+    <input placeholder="filter value" v-model="query">    
+    <button @click="addFilter">add filter</button>
+      <hr>
+  <table v-if="activeFilters.length">
+    <tr style="width: 100px">
+      <th colspan="3">Filters in use:</th>
+    </tr>
+    <tr v-for="(filter, index) in activeFilters" :key="index">
+      <td>{{ filter.name }}:</td>
+      <td>{{ filter.value }}</td>
+      <td style="padding-left: 10px;">
+        <a href="#" @click.prevented=removeFilter(index)>
+          remove
+        </a>
+      </td>
+    </tr>
+  </table>
+  <hr v-if="activeFilters.length">
+   
+
+  </div>
+
+  
  <div>
  
 </div>
@@ -80,6 +108,9 @@ export default {
         applications:null,
         currentUser: firebase.auth().currentUser,
         list_used_to_hide_info:[],
+        filteredProperty: 'name',
+        query:'',
+         activeFilters: [],
 
 
      };
@@ -93,6 +124,9 @@ export default {
     routes: routesRef
   },
   mixins: [notifier],
+   computed: {
+    
+  },
   
   methods: {
     /**
@@ -115,6 +149,24 @@ export default {
         }
         }
 
+    },
+    filtered () {
+      var filtered =this.applications;
+      this.activeFilters.forEach(filter => {
+        
+        filtered = filtered.filter(record => {
+          //console.log(record["applicationinfo"][filter.name]);
+          return filter.name === 'name'
+            ? new RegExp(filter.value, 'i').test(record["applicationinfo"][filter.name])
+            : record["applicationinfo"][filter.name] == filter.value; 
+            //console.log(filter.value);
+             //onsole.log(record);
+        })
+        
+      })
+     // console.log(filtered);
+       console.log(filtered);
+      return this.applications = filtered
     },
     /**
      * This is called in order to approve applcation
@@ -139,6 +191,18 @@ export default {
           this.showNotification('success', 'Application has been denied')
           this.gettheApplications();
  },
+ addFilter () {
+      this.activeFilters.push({
+        name: this.filteredProperty,
+        value: this.query
+      })
+      this.filtered ()
+      this.query = ''
+    },
+    removeFilter (idx) {
+      this.activeFilters.splice(idx, 1)
+      this.gettheApplications();
+    },
 
  /**
   * So that we can call this function inside of our template

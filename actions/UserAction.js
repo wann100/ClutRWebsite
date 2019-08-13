@@ -4,7 +4,7 @@ export function getusers() {}
 
 export function updateUserDetails(currentUser,whichdetails,details) {
   //const { currentUser } = firebase.auth();
-  console.log(currentUser.uid);
+  //console.log(currentUser.uid);
   switch (whichdetails) {
     case "cleanermode":
       firebase

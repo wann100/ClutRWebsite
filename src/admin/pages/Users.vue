@@ -12,7 +12,34 @@
     <div class="box">
       <div class="columns">
         <div class="column">
-        <input class="searchbox" type="text" placeholder="Search..">
+        <select v-model="filteredProperty">
+      <option value="firstname">First Name</option>
+       <option value="lastname">Last Name</option>
+       <option value="email">Email</option>
+      <option value="uid">uid</option>
+     
+    </select>
+    <input placeholder="filter value" v-model="query">    
+    <button @click="addFilter">add filter</button>
+      <hr>
+  <table v-if="activeFilters.length">
+    <tr style="width: 100px">
+      <th colspan="3">Filters in use:</th>
+    </tr>
+    <tr v-for="(filter, index) in activeFilters" :key="index">
+      <td>{{ filter.name }}:</td>
+      <td>{{ filter.value }}</td>
+      <td style="padding-left: 10px;">
+        <a href="#" @click.prevented=removeFilter(index)>
+          remove
+        </a>
+      </td>
+    </tr>
+  </table>
+  <hr v-if="activeFilters.length">
+  
+
+  </div>
         </div>
         </div>
 <a class="img-container" v-for="(item, key) in users" :key="key"   >
@@ -83,6 +110,9 @@ export default {
     return { 
         users:null,
         currentUser: firebase.auth().currentUser,
+        filteredProperty: 'email',
+        query:'',
+        activeFilters: [],
 
 
      };
@@ -96,9 +126,29 @@ export default {
     routes: routesRef
   },
   mixins: [notifier],
+   computed: {
+    
+  },
   components: { QuickEdit },
   methods: {
-
+filtered () {
+      var filtered =this.users;
+      this.activeFilters.forEach(filter => {
+        
+        filtered = filtered.filter(record => {
+          console.log(record["userDetails"][filter.name]);
+          return filter.name === 'name'
+            ? new RegExp(filter.value, 'i').test(record["userDetails"][filter.name])
+            : record["userDetails"][filter.name] == filter.value; 
+            console.log(filter.value);
+             //onsole.log(record);
+        })
+        
+      })
+     // console.log(filtered);
+      console.log(filtered);
+      return this.users = filtered
+    },
     getusers(){
 
         this.users = userDetailsFetch();
@@ -114,6 +164,18 @@ export default {
       updateUserDetails(currentUser,whichdetails,details);
       this.getusers()
 
+    },
+     addFilter () {
+      this.activeFilters.push({
+        name: this.filteredProperty,
+        value: this.query
+      })
+      this.filtered();
+      this.query = ''
+    },
+    removeFilter (idx) {
+      this.activeFilters.splice(idx, 1)
+      this.getusers();
     },
 
 

@@ -64,9 +64,59 @@ export function getAppointments(condition){
      checklistsubmitted:item
     });
  }
- if(nameofitemtoupdate==="checklistsubmitted"){
+ if(nameofitemtoupdate==="service"){
     firebase.database().ref(`appointments/${appointment_id}`).update({
-      checklistsubmitted:item
+        service:item
+     });
+  }
+  if(nameofitemtoupdate==="dateofAppointmentRequest"){
+    firebase.database().ref(`appointments/${appointment_id}`).update({
+        dateofAppointmentRequest:item
+     });
+  }
+  if(nameofitemtoupdate==="dateofAppointmentRequest"){
+    firebase.database().ref(`appointments/${appointment_id}`).update({
+        dateofAppointmentRequest:item
+     });
+  }
+  if(nameofitemtoupdate==="timeofappointmentRequest"){
+    firebase.database().ref(`appointments/${appointment_id}`).update({
+        timeofappointmentRequest:item
+     });
+  }
+  if(nameofitemtoupdate==="customerPhone"){
+    firebase.database().ref(`appointments/${appointment_id}`).update({
+        customerPhone:item
+     });
+  }
+  if(nameofitemtoupdate==="price"){
+    firebase.database().ref(`appointments/${appointment_id}`).update({
+        price:item
+     });
+  }
+  if(nameofitemtoupdate==="property_address"){
+    firebase.database().ref(`appointments/${appointment_id}`).update({
+        property_address:item
+     });
+  }
+  if(nameofitemtoupdate==="typeof"){
+    firebase.database().ref(`appointments/${appointment_id}`).update({
+        typeof:item
+     });
+  }
+  if(nameofitemtoupdate==="lockboxcode"){
+    firebase.database().ref(`appointments/${appointment_id}`).update({
+        lockboxcode:item
+     });
+  }
+  if(nameofitemtoupdate==="numofbathrooms"){
+    firebase.database().ref(`appointments/${appointment_id}`).update({
+        numofbathrooms:item
+     });
+  }
+  if(nameofitemtoupdate==="numofbedrooms"){
+    firebase.database().ref(`appointments/${appointment_id}`).update({
+        numofbedrooms:item
      });
   }
  }

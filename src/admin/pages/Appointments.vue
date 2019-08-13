@@ -25,72 +25,74 @@
    <b-collapse    :id="'collapse-'+key"  >
     <b-card>
         <div class="columns">
-            <h4 style="text-align:center">Appointment info</h4>
+            
                <div class="column">
-                <h6>customer id:</h6>
-                <h7>{{item.customerId}}</h7>
+                <h6>customerid:</h6>
+         <quick-edit class="cleanerid" v-model="item.customerId"></quick-edit>
+
+                
             </div>
                <div class="column">
-                <h6>Cleaner id:</h6>
-                <h7>{{item.cleaner_Id_1}}</h7>
+                <h6>cleanerid:</h6>
+                   <quick-edit class="cleanerid" @input="updateappointments(item.id,'cleaner_ID_1',item.cleaner_ID_1)" v-model="item.cleaner_Id_1"></quick-edit>
             </div>
             <div class="column">
                 <h6>Status:</h6>
-                <quick-edit v-model="item.status"></quick-edit>
+                <quick-edit @input="updateappointments(item.id,'status',item.status)" v-model="item.status"></quick-edit>
             </div>
             <div class="column">
-                <h6>checklist submit:</h6>
-                <quick-edit type="boolean" v-model="item.checklistsubmitted"></quick-edit>
+                <h6>listup</h6>
+                <quick-edit  @input="updateappointments(item.id,'checklistsubmitted',item.checklistsubmitted)"  type="boolean" v-model="item.checklistsubmitted"></quick-edit>
             </div>
                
                     <div class="column">
                 <h6>Service:</h6>
-                <quick-edit v-model="item.servicename"></quick-edit>
+                <quick-edit @input="updateappointments(item.id,'service',item.service)" v-model="item.servicename"></quick-edit>
             </div>
             <div class="column">
-                <h6>Date of Request:</h6>
-                <quick-edit v-model="item.dateofAppointmentRequest"></quick-edit>
+                <h6>DateofRequest:</h6>
+                <quick-edit @input="updateappointments(item.id,'dateofAppointmentRequest',item.dateofAppointmentRequest)" v-model="item.dateofAppointmentRequest"></quick-edit>
             </div>
 
                  <div class="column">
-                <h6>Time of Request:</h6>
-                <quick-edit v-model="item.timeofappointmentRequest"></quick-edit>
+                <h6>TimeofRequest:</h6>
+                <quick-edit @input="updateappointments(item.id,'timeofappointmentRequest',item.timeofappointmentRequest)" v-model="item.timeofappointmentRequest"></quick-edit>
             </div>
                 <div class="column">
                 <h6>Rating:</h6>
-                <quick-edit v-model="item.rating"></quick-edit>
+                <quick-edit @input="updateappointments(item.id,'timeofappointmentRequest',item.rating)"  v-model="item.rating"></quick-edit>
             </div>
               <div class="column">
-                <h6>Price:</h6>
-                <quick-edit v-model="item.price"></quick-edit>
+                <h6>price:</h6>
+                <quick-edit @input="updateappointments(item.id,'price',item.price)"  v-model="item.price"></quick-edit>
             </div>
              <div class="column">
-                <h6>customer phone:</h6>
-                <quick-edit v-model="item.customerPhone"></quick-edit>
+                <h6>customerphone:</h6>
+                <quick-edit  @input="updateappointments(item.id,'customerPhone',item.customerPhone)"  v-model="item.customerPhone"></quick-edit>
             </div>
            
         </div>
  <div class="columns">
-      <h4 style="text-align:center">Property info</h4>
+      
           <div class="column">
                 <h6>Address:</h6>
-                <quick-edit v-model="item.property_address"></quick-edit>
+                <quick-edit  @input="updateappointments(item.id,'property_address',item.property_address)"  v-model="item.property_address"></quick-edit>
             </div>
              <div class="column">
                 <h6>Type of Property:</h6>
-                <quick-edit v-model="item.typeof"></quick-edit>
+                <quick-edit  @input="updateappointments(item.id,'typeof',item.typeof)"  v-model="item.typeof"></quick-edit>
             </div>
                   <div class="column">
                 <h6>lockbox code:</h6>
-                <quick-edit v-model="item.lockboxcode"></quick-edit>
+                <quick-edit  @input="updateappointments(item.id,'lockboxcode',item.lockboxcode)"   v-model="item.lockboxcode"></quick-edit>
             </div>
               <div class="column">
                 <h6>Number of bathrooms:</h6>
-                <quick-edit v-model="item.numberofbathrooms"></quick-edit>
+                <quick-edit   @input="updateappointments(item.id,'numberofbathrooms',item.numberofbathrooms)"  v-model="item.numberofbathrooms"></quick-edit>
             </div>
             <div class="column">
                 <h6>Number of bedrooms:</h6>
-                <quick-edit v-model="item.numberofbedrooms"></quick-edit>
+                <quick-edit  @input="updateappointments(item.id,'numberofbedrooms',item.numberofbedrooms)"  v-model="item.numberofbedrooms"></quick-edit>
             </div>
             </div>
              </b-card></b-collapse> </a>
@@ -103,7 +105,7 @@
 import firebase from "firebase/app";
 import "firebase/storage";
 import { demoData } from "@/../tamiat.config.json";
-import {getAppointments,getUser} from "@/../actions"
+import {getAppointments,getUser,updateAppointment} from "@/../actions"
 import notifier from "@/admin/mixins/notifier";
 
 import {
@@ -150,7 +152,9 @@ export default {
 
     },
 
-        SearchForAppointment(search_criteria){
+        updateappointments(appointment_id,nameofitemtoupdate,item){
+            updateAppointment(appointment_id,nameofitemtoupdate,item);
+            this.getAllAppointments("approved")
 
     },
     FilterFunction(filter_criteria){
@@ -191,16 +195,21 @@ button {
     margin-left:-10%;
 }
 .column{
-    text-align:center;
+    text-align: center;
+    
     
 }
-h7{
-    font-size: 3mm;
-    text-align: justify;
-}
+ 
+
 .columns{
     margin-top:40px;
 
+}
+.cleanerid{
+    font-size:3mm;
+}
+h4{
+font-size:4mm
 }
 
 

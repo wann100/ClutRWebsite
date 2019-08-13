@@ -2,14 +2,14 @@ import firebase from "firebase/app";
 
 export function getusers() {}
 
-export function updateUserDetails(currentUseruid) {
+export function updateUserDetails(currentUser,whichdetails,details) {
   //const { currentUser } = firebase.auth();
 
   switch (whichdetails) {
     case "cleanermode":
       firebase
         .database()
-        .ref(`/users/${currentUseruid}/userDetails`)
+        .ref(`/users/${currentUser.currentUseruid}/userDetails`)
         .update({
           cleanermode: details
         });
@@ -17,7 +17,7 @@ export function updateUserDetails(currentUseruid) {
     case "lookingforwork":
       firebase
         .database()
-        .ref(`/users/${currentUseruid}/userDetails`)
+        .ref(`/users/${currentUser.currentUseruid}/userDetails`)
         .update({
           lookingforwork: details
         });
@@ -25,7 +25,7 @@ export function updateUserDetails(currentUseruid) {
     case "points":
       firebase
         .database()
-        .ref(`/users/${currentUseruid}/userDetails`)
+        .ref(`/users/${currentUser.currentUseruid}/userDetails`)
         .update({
           points: details
         });
@@ -33,7 +33,7 @@ export function updateUserDetails(currentUseruid) {
     case "currentlong":
       firebase
         .database()
-        .ref(`/users/${currentUseruid}/userDetails`)
+        .ref(`/users/${currentUser.currentUseruid}/userDetails`)
         .update({
           currentlong: details
         });
@@ -41,7 +41,7 @@ export function updateUserDetails(currentUseruid) {
     case "currentlat":
       firebase
         .database()
-        .ref(`/users/${currentUseruid}/userDetails`)
+        .ref(`/users/${currentUser.currentUseruid}/userDetails`)
         .update({
           currentlat: details
         });
@@ -49,7 +49,7 @@ export function updateUserDetails(currentUseruid) {
     case "workwithcleaners":
       firebase
         .database()
-        .ref(`/users/${currentUseruid}/userDetails`)
+        .ref(`/users/${currentUser.currentUseruid}/userDetails`)
         .update({
           workwithcleaners: details
         });
@@ -57,7 +57,7 @@ export function updateUserDetails(currentUseruid) {
     case "currentappointmentid":
       firebase
         .database()
-        .ref(`/users/${currentUseruid}/userDetails`)
+        .ref(`/users/${currentUser.currentUseruid}/userDetails`)
         .update({
           currentappointmentid: details
         });
@@ -65,7 +65,7 @@ export function updateUserDetails(currentUseruid) {
     case "cleanercurrentap":
       firebase
         .database()
-        .ref(`/users/${currentUseruid}/userDetails`)
+        .ref(`/users/${currentUser.currentUseruid}/userDetails`)
         .update({
           cleanercurrentapid: details
         });
@@ -73,7 +73,7 @@ export function updateUserDetails(currentUseruid) {
     case "plaidtoken":
       firebase
         .database()
-        .ref(`/users/${currentUseruid}/userDetails`)
+        .ref(`/users/${currentUser.currentUseruid}/userDetails`)
         .update({
           plaid_token: details
         });
@@ -81,7 +81,7 @@ export function updateUserDetails(currentUseruid) {
     case "institutionname":
       firebase
         .database()
-        .ref(`/users/${currentUseruid}/userDetails`)
+        .ref(`/users/${currentUser.currentUseruid}/userDetails`)
         .update({
           institution_name: details
         });
@@ -89,7 +89,7 @@ export function updateUserDetails(currentUseruid) {
     case "institutionid":
       firebase
         .database()
-        .ref(`/users/${currentUseruid}/userDetails`)
+        .ref(`/users/${currentUser.currentUseruid}/userDetails`)
         .update({
           institution_id: details
         });
@@ -97,7 +97,7 @@ export function updateUserDetails(currentUseruid) {
     case "plaidaccountnumber":
       firebase
         .database()
-        .ref(`/users/${currentUseruid}/userDetails`)
+        .ref(`/users/${currentUser.currentUseruid}/userDetails`)
         .update({
           plaid_last_four: details
         });
@@ -105,7 +105,7 @@ export function updateUserDetails(currentUseruid) {
     case "plaidaccounttype":
       firebase
         .database()
-        .ref(`/users/${currentUseruid}/userDetails`)
+        .ref(`/users/${currentUser.currentUseruid}/userDetails`)
         .update({
           plaid_account_type: details
         });
@@ -114,7 +114,7 @@ export function updateUserDetails(currentUseruid) {
     case "plaidaccountid":
       firebase
         .database()
-        .ref(`/users/${currentUseruid}/userDetails`)
+        .ref(`/users/${currentUser.currentUseruid}/userDetails`)
         .update({
           plaid_account_id: details
         });
@@ -123,11 +123,19 @@ export function updateUserDetails(currentUseruid) {
     case "numberofappointmentscompleted":
       firebase
         .database()
-        .ref(`/users/${currentUseruid}/userDetails`)
+        .ref(`/users/${currentUser.currentUseruid}/userDetails`)
         .update({
           numofapptcompleted: details
         });
       break;
+      case "isCleaner":
+        firebase
+          .database()
+          .ref(`/users/${currentUser.currentUseruid}/userDetails`)
+          .update({
+            isCleaner: details
+          });
+        break;
   }
 }
 

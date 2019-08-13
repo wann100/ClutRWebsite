@@ -24,11 +24,12 @@
     <b-card>
        <div class="columns"  >
          <div class="column" style="margin:10px">
+           
            <h3>Name: {{item.applicationinfo.name}}</h3>
            <h3>DOB: {{item.applicationinfo.dob}}</h3>
            <h3>SSN:{{item.applicationinfo.ssn}}</h3>
            <h3>Team Size:{{item.applicationinfo.num_team}}</h3>
-            <b-button variant="primary">Approve </b-button>
+            <b-button variant="primary" @click="ApproveApplication(getuserinfo(item.applicationinfo.id),'isCleaner',true)" >Approve </b-button>
 
          </div>
          <div class="column">
@@ -57,7 +58,7 @@
 import firebase from "firebase/app";
 import "firebase/storage";
 import { demoData } from "@/../tamiat.config.json";
-import {getApplications,downloadApplicationImages} from "@/../actions"
+import {getApplications,downloadApplicationImages,getUser,updateUserDetails,updateApplication} from "@/../actions"
 import notifier from "@/admin/mixins/notifier";
 import {
   settingsRef,
@@ -91,7 +92,9 @@ export default {
   mixins: [notifier],
   
   methods: {
-
+    /**
+     * This function gets the applications that are not approved
+     */
     async gettheApplications(){
 
         this.applications = await getApplications();
@@ -110,14 +113,36 @@ export default {
         }
 
     },
-    ApproveApplication(){
+    /**
+     * This is called in oder to approve applcation
+     */
+    async ApproveApplication(currentUser,whichdetails,details){
+      //First update usersdetails so that they can login
+        await  updateUserDetails(currentUser,whichdetails,details);
+      //Then update the application status so that it doesnt show up on this menu
+      // console.log(currentUser[0].uid)
+       await   updateApplication(currentUser[0].uid,"status",'approved');
+          //Then update the screen by re loading the applications back in
+          this.showNotification('success', 'Application has been approved')
+          this.gettheApplications();
+ },
 
-    },
+ /**
+  * So that we can call this function inside of our template
+  */
+  getuserinfo(userid_input){
+    return getUser(userid_input);
+ },
 
   },
+   /**
+  *Loads pending applications when screen loads
+  */
    beforeMount(){
     this.gettheApplications()
  },
+
+
 };
 </script>
 

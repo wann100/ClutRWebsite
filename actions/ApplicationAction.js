@@ -13,9 +13,13 @@ export async function getApplications(){
       
       await snapshot.forEach(childSnapshot => {
          //   console.log(childSnapshot.key);
-          var objecttoreturn={applicationinfo:childSnapshot.val().applicationDetails,Idurl:downloadApplicationImages(childSnapshot.key)};
-        // console.log(objecttoreturn);
-          return_this.push(objecttoreturn);
+         if(childSnapshot.val().applicationDetails.status == "pending"){
+            var objecttoreturn={applicationinfo:childSnapshot.val().applicationDetails,Idurl:downloadApplicationImages(childSnapshot.key)};
+            // console.log(objecttoreturn);
+              return_this.push(objecttoreturn);
+
+         }
+        
       });
     });
   
@@ -35,3 +39,14 @@ export function downloadApplicationImages(user_id){
     Backref.getDownloadURL().then((url)=>{return_this.push(url)} )
     return return_this;
     }
+
+   export function updateApplication(application_id,nameofitemtoupdate,item){
+   
+   
+     if(nameofitemtoupdate ==="status"){
+       firebase.database().ref(`applications/${application_id}/applicationDetails`).update({
+         status:item
+        });
+     }
+    }
+   

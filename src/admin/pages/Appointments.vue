@@ -19,7 +19,9 @@
         </div>
     <a class="img-container" v-for="(item, key) in appointments" :key="key"   >
 <!--  This is how you create a collapsible list using the key and array !-->
-         <b-button    v-b-toggle="'collapse-'+key"  variant="primary">View: {{item.id}}</b-button>       
+ <div class="columns">
+         <b-button class="buttonstyle"   v-b-toggle="'collapse-'+key"  variant="primary">View: {{item.id}}</b-button>    
+         </div>   
    <b-collapse    :id="'collapse-'+key"  >
     <b-card>
         <div class="columns">
@@ -92,7 +94,7 @@
             </div>
             </div>
              </b-card></b-collapse> </a>
-         {{appointments[0]}}
+        
       </div>
     </div>
 </template>
@@ -168,7 +170,7 @@ export default {
 
 <style lang="scss" scoped>
 .column > div {
-  margin-top: 15px;
+  margin-top: 35px;
   &:first-child {
     margin-top: 0px;
   }
@@ -196,4 +198,10 @@ h7{
     font-size: 3mm;
     text-align: justify;
 }
+.columns{
+    margin-top:40px;
+
+}
+
+
 </style>

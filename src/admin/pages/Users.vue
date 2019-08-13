@@ -146,4 +146,8 @@ input{
   width:80%,
 
 }
+.columns{
+    margin-top:40px;
+
+}
 </style>

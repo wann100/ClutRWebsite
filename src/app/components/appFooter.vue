@@ -7,8 +7,8 @@
         </div>
 
         <div class="content">
-          <h3 class="is-heading">Join our newsletter</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id felis et ipsum bibendum ultrices. Morbi vitae pulvinar velit. Sed aliquam dictum sapien, id sagittis augue malesuada eu.</p>
+          <h3 class="is-heading">Join our Beta</h3>
+          <p>Get $10 dollars off your first cleaning</p>
 
           <div class="alert-subscription" v-if="isSubscribed">
             Thanks for your subscription.
@@ -47,10 +47,9 @@
         </ul>
         <div>
           <p>Made by
-            <a href="http://tutorialzine.com/" target="_blank">tutorialzine</a>. images courtesy to
-            <a href="http://unsplash.com/" target="_blank">unsplash</a>.
+            <a href="http://clutr.io/" target="_blank">ClutR LLC</a>
           </p>
-          <p>No attribution required. you can remove this footer.</p>
+          <p>Copyright ClutR LLC 2019</p>
         </div>
       </div>
     </footer>
@@ -86,7 +85,7 @@ export default {
   ---------------------*/
 
 .contact {
-  background-color: $color-orange;
+  background-color:#29A4B4;
   color: #ffffff;
   .container {
     padding: 65px 0;
@@ -151,7 +150,7 @@ export default {
   -------------*/
 
 footer {
-  background-color: $color-orange;
+  background-color: #24E3C1;
   border-top: 1px solid #ffffff;
   .container {
     display: flex;

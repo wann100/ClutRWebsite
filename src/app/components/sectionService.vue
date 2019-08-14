@@ -1,5 +1,5 @@
 <template>
-  <section class="features bg-blue">
+  <section class="features">
     <div class="container">
       <h3 class="is-heading">Features and services</h3>
       <p class="info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id felis et ipsum bibendum ultrices. Morbi vitae pulvinar velit. Sed aliquam dictum sapien, id sagittis augue malesuada eu.</p>
@@ -41,6 +41,7 @@ export default {
 
 .features {
   color: #ffffff;
+  background-color:  #24E3C1;
   .is-heading {
     color: #ffffff;
   }

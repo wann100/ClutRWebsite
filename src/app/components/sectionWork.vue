@@ -2,7 +2,7 @@
   <section class="our-work">
     <div class="container">
       <h3 class="is-heading">Some of our work</h3>
-      <p class="info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id felis et ipsum bibendum ultrices. Morbi vitae pulvinar velit. Sed aliquam dictum sapien, id sagittis augue malesuada eu.</p>
+      <p class="info">Welcome to our CRM</p>
       <ul class="grid" v-if="works">
         <li v-for="work in works" :key="work['.key']" class="small" :style="{'background-image': `url(${work.img})`}"></li>
       </ul>

@@ -71,16 +71,12 @@ export default {
           path: '/admin/media',
           icon: 'fa-picture-o'
         },
-        {
-          name: 'Database',
-          path: '/admin/database',
-          icon: 'fa-database'
-        },
-        {
-          name: 'Settings',
-          path: '/admin/settings',
-          icon: 'fa-gear'
-        },
+        // {
+        //   name: 'Database',
+        //   path: '/admin/database',
+        //   icon: 'fa-database'
+        // },
+
                 {
           name: 'Users',
           path: '/admin/users',
@@ -96,6 +92,11 @@ export default {
           name: 'Appointments',
           path: '/admin/appointments',
           icon: 'fa-calendar'
+        },
+                {
+          name: 'Settings',
+          path: '/admin/settings',
+          icon: 'fa-gear'
         },
       ],
       helpbtn: {

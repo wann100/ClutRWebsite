@@ -69,14 +69,11 @@ export default {
           name: 'Media',
           path: '/admin/media'
         },
-        {
-          name: 'Database',
-          path: '/admin/database'
-        },
-        {
-          name: 'Settings',
-          path: '/admin/settings'
-        },
+        // {
+        //   name: 'Database',
+        //   path: '/admin/database'
+        // },
+
                 {
           name: 'Applications',
           path: '/admin/applications'
@@ -84,7 +81,15 @@ export default {
         {
           name: 'Users',
           path: '/admin/users'
-        }
+        },
+           {
+          name: 'Appointments',
+          path: '/admin/appointments'
+        },
+                {
+          name: 'Settings',
+          path: '/admin/settings'
+        },
       ]
     }
   },

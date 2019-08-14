@@ -59,10 +59,6 @@ const routes = [
         component: Media
       },
       {
-        path: 'database',
-        component: Database
-      },
-      {
         path: 'content',
         component: ContentType,
         children: [

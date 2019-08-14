@@ -24,9 +24,8 @@
                 </h1>
               </div>
               <router-link to="/">
-                <!-- <img src="/static/img/logo.png" alt="Tamiat CMS logo"> -->
+
                 <div>
-                  <object type="image/svg+xml" data="static/img/tamiat-logo-icon-color.svg" style="pointer-events: none; height: 7rem"></object>
                 </div>
               </router-link>
               <p>Version v0.3.0</p>

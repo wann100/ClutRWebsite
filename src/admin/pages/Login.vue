@@ -8,7 +8,7 @@
           <button class="delete" @click="hideNotifications"></button>{{notification.message}}
         </div>
 
-        <!-- tamiat CMS logo -->
+       
         <div class="columns is-flex is-centered is-mobile">
           <figure class="column is-half">
             <router-link to="/"><img :src="`${baseUrl}static/img/logo.png`" alt="Tamiat logo"></router-link>

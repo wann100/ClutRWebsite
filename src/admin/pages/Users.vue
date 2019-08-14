@@ -78,6 +78,10 @@
      <h6>is a cleaner </h6>
  <quick-edit @input="updateUser(item.userDetails,'isCleaner',item.userDetails.isCleaner)"     type="boolean" v-model="item.userDetails.isCleaner"></quick-edit>
    </div>
+    <div class="column">
+     <h6>points </h6>
+  <quick-edit @input="updateUser(item.userDetails,'points',item.userDetails.points)"   v-model="item.userDetails.points"></quick-edit>
+   </div>
     
      </div>
       </b-card></b-collapse> </a>

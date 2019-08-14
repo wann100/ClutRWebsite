@@ -22,7 +22,7 @@
 
 ### Versions
 
-[The TamiatCMS version that you currently are using]
+[The  version that you currently are using]
 
 ### Additional Information
 

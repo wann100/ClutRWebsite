@@ -209,7 +209,7 @@ export default {
             name: 'WebsiteLogo'
           }
           // let tempLogo = {...currentLogo}
-          // making sure that the image is uploaded into the media object and is registered in tamiat regerdless if it remains a logo or not so it can be used nonetheless
+          // making sure that the image is uploaded into the media object and is registered  regerdless if it remains a logo or not so it can be used nonetheless
           if (Object.values(this.media).find(e => e.path === snapshot.ref.fullPath)) {
           } else {
             this.$firebaseRefs.media.push({

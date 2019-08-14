@@ -160,6 +160,14 @@ export function updateUserDetails(currentUser,whichdetails,details) {
               phone: details
             });
           break;
+          case "points":
+            firebase
+              .database()
+              .ref(`/users/${currentUser.uid}/userDetails`)
+              .update({
+                points: details
+              });
+            break;
   }
 }
 

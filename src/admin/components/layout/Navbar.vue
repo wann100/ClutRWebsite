@@ -65,10 +65,7 @@ export default {
           name: 'Routing',
           path: '/admin/routing'
         },
-        {
-          name: 'Media',
-          path: '/admin/media'
-        },
+    
         // {
         //   name: 'Database',
         //   path: '/admin/database'

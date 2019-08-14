@@ -11,12 +11,42 @@
     <h2>Appointments</h2>
     <div class="box" >
       <div class="columns">
+          
+        
         <div class="column">
-        <input class="searchbox" type="text" placeholder="Search..">
+        <select v-model="filteredProperty">
+      <option value="customerid">Customer Id</option>
+       <option value="cleaner_Id_1">Cleaner Id</option>
+      <option value="id">id</option>
+      <option value="status">status</option>
+     
+    </select>
+    <input   placeholder="filter value" v-model="query">    
+    <button @click="addFilter">add filter</button>
+      <hr>
+  <table v-if="activeFilters.length">
+    <tr style="width: 100px">
+      <th colspan="3">Filters in use:</th>
+    </tr>
+    <tr v-for="(filter, index) in activeFilters" :key="index">
+      <td>{{ filter.name }}:</td>
+      <td>{{ filter.value }}</td>
+      <td style="padding-left: 10px;">
+        <a href="#" @click.prevented=removeFilter(index)>
+          remove
+        </a>
+      </td>
+    </tr>
+  </table>
+  <hr v-if="activeFilters.length">
+  
+        </div>
+  
+     
  <!-- how you get the userimage {{ this.applications[0].Idurl[0] }} !-->
     
     </div>
-        </div>
+        
     <a class="img-container" v-for="(item, key) in appointments" :key="key"   >
 <!--  This is how you create a collapsible list using the key and array !-->
  <div class="columns">
@@ -25,7 +55,7 @@
    <b-collapse    :id="'collapse-'+key"  >
     <b-card>
         <div class="columns">
-            
+           
                <div class="column">
                 <h6>customerid:</h6>
          <quick-edit class="cleanerid" v-model="item.customerId"></quick-edit>
@@ -107,7 +137,7 @@ import "firebase/storage";
 import { demoData } from "@/../tamiat.config.json";
 import {getAppointments,getUser,updateAppointment} from "@/../actions"
 import notifier from "@/admin/mixins/notifier";
-
+import QuickEdit from 'vue-quick-edit';
 import {
   settingsRef,
   mediaRef,
@@ -124,6 +154,10 @@ export default {
     return { 
         appointments:null,
         currentUser: firebase.auth().currentUser,
+        filteredProperty: 'id',
+        query:'',
+        activeFilters: [],
+
 
 
      };
@@ -138,6 +172,36 @@ export default {
   },
   mixins: [notifier],
   methods: {
+      filtered () {
+      var filtered =this.appointments;
+      this.activeFilters.forEach(filter => {
+        
+        filtered = filtered.filter(record => {
+          return filter.name === 'name'
+            ? new RegExp(filter.value, 'i').test(record[filter.name])
+            : record[filter.name] == filter.value; 
+            console.log(filter.value);
+             //onsole.log(record);
+        })
+        
+      })
+     // console.log(filtered);
+      console.log(filtered);
+      return this.appointments = filtered
+    },
+ addFilter () {
+      this.activeFilters.push({
+        name: this.filteredProperty,
+        value: this.query
+      })
+      this.filtered();
+      this.query = ''
+    },
+    removeFilter (idx) {
+      this.activeFilters.splice(idx, 1)
+      this.getAllAppointments("approved");
+    },
+
 
     getAllAppointments(filter){
 

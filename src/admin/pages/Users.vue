@@ -39,12 +39,14 @@
   <hr v-if="activeFilters.length">
   
 
-  </div>
+  
         </div>
         </div>
 <a class="img-container" v-for="(item, key) in users" :key="key"   >
 <!--  This is how you create a collapsible list using the key and array !-->
+  <div class="columns">
          <b-button    v-b-toggle="'collapse-'+key"  variant="primary">View: {{item.userDetails.firstname+item.userDetails.lastname}}</b-button>       
+   </div>
    <b-collapse    :id="'collapse-'+key"  >
     <b-card>
  <div class="columns">

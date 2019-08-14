@@ -11,10 +11,6 @@
         </h1>
         <h3>{{settings.description}}</h3>
         <div class="cta">
-          <a href="https://github.com/tamiat/tamiat" class="btn is-large has-icon" target="_blank">
-            Download it Here
-            <i class="fa fa-arrow-circle-down"></i>
-          </a>
         </div>
       </div>
     </section>

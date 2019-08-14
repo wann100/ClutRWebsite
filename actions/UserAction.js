@@ -133,7 +133,7 @@ export function updateUserDetails(currentUser,whichdetails,details) {
           .database()
           .ref(`/users/${currentUser.uid}/userDetails`)
           .update({
-            isCleaner: details
+            isCleaner: String(details)
           });
         break;
       case "firstname":

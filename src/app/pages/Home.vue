@@ -6,8 +6,8 @@
     <section class="hero">
       <div class="background-image" :style="{'background-image': `url(${require('@/app/assets/img/background.jpg')})`}">
      <div class="column">
-      <span class="welcometext" style=""> Welcome to Clut<h1 style="display: inline; font-size:inherit;
-    color:red;letter-spacing: 2px;">R</h1></span>
+      <span class="welcometext" style=""> The Clut<h1 style="display: inline; font-size:inherit;
+    color:#B42521;letter-spacing: 2px;">R</h1> App</span>
     <span class="welcometextbody" style=""> Cleaning Services at your fingertips</span>
        </div> 
 
@@ -256,7 +256,7 @@ export default {
      font-size: 130px; 
     font-family:'suez'; 
     color:#24E4C4;
-    text-shadow: 2px 2px #FFff;
+     text-shadow: -1px -2px 0px #FFff;
     font-weight: 900;
     margin-left:25%;
   }
@@ -264,9 +264,9 @@ export default {
      font-size: 40px; 
     font-family:'suez'; 
     color:#24E4C4;
-    font-weight: 500;
+    font-weight: 900;
     margin-left:25%;
-     text-shadow: 1px 1px #FFff;
+     text-shadow: -1px -2px 0px white;
 
   }
   .androiddownload{
@@ -303,6 +303,7 @@ export default {
     font-family:'suez'; 
     color:#24E4C4;
     font-weight: 900;
+     text-shadow: 1px 1px #FFff;
 
   }
     .androiddownload{
@@ -325,8 +326,26 @@ export default {
     font-weight: 900;
     font-family:'suez'; 
     color:#24E4C4;
+    margin:0;
+  }
+     .welcometextbody{
+     font-size: 30px; 
+    font-family:'suez'; 
+    color:#24E4C4;
+    font-weight: 900;
+    margin:0;
+     text-shadow: -1px -2px 0px white;
+
   }
     .androiddownload{
+    
+    background:transparent;
+    width:80%;
+    margin-left:10%;
+    margin-top:0;
+
+  }
+     .iosdownload{
     
     background:transparent;
     width:80%;

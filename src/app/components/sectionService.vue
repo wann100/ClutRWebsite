@@ -42,6 +42,7 @@ export default {
 .features {
   color: #ffffff;
   background-color:  #24E3C1;
+     margin-top: 20px;
   .is-heading {
     color: #ffffff;
   }

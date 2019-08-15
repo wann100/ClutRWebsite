@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="backgroundimage" style="{'background-image': `url(${require('@/app/assets/img/background.jpg')})`}">
+    
     <section class="contact">
       <div class="container">
         <div class="icon-box">
@@ -83,12 +84,24 @@ export default {
 /*---------------------
        Contact Section
   ---------------------*/
-
+.backgroundimage{
+      width: 100%;
+    height: 100%;
+    background-size:cover;
+      background-repeat: no-repeat;
+      background-position:center;
+    background-color: white;
+   stroke-opacity: 400;
+    background-attachment: fixed;
+}
 .contact {
   background-color:#29A4B4;
   color: #ffffff;
   .container {
     padding: 65px 0;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    
     flex-direction: row;
     > div {
       width: 50%;
@@ -152,6 +165,13 @@ export default {
 footer {
   background-color: #24E3C1;
   border-top: 1px solid #ffffff;
+    background-size:cover;
+      background-repeat: no-repeat;
+      background-position:center;
+    background-color: #2196f3;
+    background-attachment: fixed;
+    background-image: url('../assets/img/background.jpg');
+  
   .container {
     display: flex;
     flex-direction: row;

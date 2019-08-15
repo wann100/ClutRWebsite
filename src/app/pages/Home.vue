@@ -8,6 +8,7 @@
      <div class="column">
       <span class="welcometext" style=""> Welcome to Clut<h1 style="display: inline; font-size:inherit;
     color:red;letter-spacing: 2px;">R</h1></span>
+    <span class="welcometextbody" style=""> Cleaning Services at your fingertips</span>
        </div> 
 
         <div class="columns"> 
@@ -20,7 +21,10 @@
 </div>
 <div class="column"> 
 <b-button class="androiddownload"    variant="primary">
-  <img v-bind:src="require('../assets/img/googleplay.png')"></b-button>   
+  <img v-bind:src="require('../assets/img/googleplay.png')"></b-button>  
+
+  <b-button class="iosdownload"    variant="primary">
+  <img v-bind:src="require('../assets/img/Apple.jpg')"></b-button>   
 </div>
         </div>
 
@@ -85,7 +89,7 @@ export default {
   methods: {
     showexampleapp(width,height){
        if(width > 1600 && height>800){
-         console.log(width);
+       
          return true
        }
        //onsole.log(width);
@@ -150,6 +154,7 @@ export default {
       background-repeat: no-repeat;
       background-position:center;
     background-color: #2196f3;
+    background-attachment: fixed;
     z-index: -1;
     &:after {
       content: '';
@@ -186,8 +191,8 @@ export default {
 }
       .smartphone {
   position: relative;
-  width: 320px;
-  height: 640px;
+  width: 400px;
+  height: 740px;
   margin: auto;
   margin-left:10%;
   border: 16px black solid;
@@ -240,7 +245,7 @@ export default {
 .iframe-container iframe {
   position: absolute;
   width: 100%;
-  height: 550px;
+  height: 650px;
   top: 0;
   left: 0;
   right: 0;
@@ -248,9 +253,21 @@ export default {
   
 }
  .welcometext{
-     font-size: 100px; 
+     font-size: 130px; 
     font-family:'suez'; 
     color:#24E4C4;
+    text-shadow: 2px 2px #FFff;
+    font-weight: 900;
+    margin-left:25%;
+  }
+   .welcometextbody{
+     font-size: 40px; 
+    font-family:'suez'; 
+    color:#24E4C4;
+    font-weight: 500;
+    margin-left:25%;
+     text-shadow: 1px 1px #FFff;
+
   }
   .androiddownload{
 
@@ -258,6 +275,13 @@ export default {
     width:40%;
     margin-right:50%;
      margin-top:20%;
+  }
+   .iosdownload{
+
+    background:transparent;
+    width:40%;
+    margin-right:50%;
+     margin-top:10%;
   }
 
 
@@ -278,6 +302,15 @@ export default {
     font-size: 61px; 
     font-family:'suez'; 
     color:#24E4C4;
+    font-weight: 900;
+
+  }
+    .androiddownload{
+
+    background:transparent;
+    width:100%;
+
+
   }
 }
 
@@ -288,15 +321,22 @@ export default {
     text-align: center;
   }
   .welcometext{
-    top:50%;
     font-size: 61px; 
+    font-weight: 900;
     font-family:'suez'; 
     color:#24E4C4;
+  }
+    .androiddownload{
+    
+    background:transparent;
+    width:80%;
+    margin-left:10%;
+
   }
 
 }
 @font-face {
     font-family: 'suez'; /*a name to be used later*/
-    src: url('../assets/img/background.jpg'); /*URL to font*/
+    src: url(require('@/app/assets/fonts/SuezOne-Regular.ttf')); /*URL to font*/
 }
 </style>

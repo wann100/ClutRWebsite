@@ -5,16 +5,25 @@
 
     <section class="hero">
       <div class="background-image" :style="{'background-image': `url(${require('@/app/assets/img/background.jpg')})`}">
-      
-      <span  style="font-size:4em;  text-shadow: 1px 5px 2px #29A4B4;
-    color:#24E3C1;"> Welcome to Clut<h1 style="display: inline; font-size:inherit;
+     <div class="column">
+      <span class="welcometext" style=""> Welcome to Clut<h1 style="display: inline; font-size:inherit;
     color:red;letter-spacing: 2px;">R</h1></span>
-<div class="smartphone">
+       </div> 
+
+        <div class="columns"> 
+          <div class="column"> 
+<div   v-if="showexampleapp(window.width,window.height)"  class="smartphone">
  <div class="iframe-container">
 <iframe src="https://xd.adobe.com/embed/d6b069f2-0abc-4404-6536-50a50b9d632d-a081/" scrolling="no" style ="overflow:hidden;"></iframe>
   </div>
 </div>
-      
+</div>
+<div class="column"> 
+<b-button class="androiddownload"    variant="primary">
+  <img v-bind:src="require('../assets/img/googleplay.png')"></b-button>   
+</div>
+        </div>
+
       </div>
       <div class="hero-content">
         <h1>
@@ -37,6 +46,10 @@
 </template>
 
 <script>
+  //  <h2 class="title is-2">
+  //     Width: {{ window.width }},
+  //     Height: {{ window.height }}
+  //   </h2>
 import { settingsRef } from '@/admin/firebase_config'
 import appHeader from '@/app/components/appHeader'
 import appFooter from '@/app/components/appFooter'
@@ -46,7 +59,44 @@ import sectionReview from '@/app/components/sectionReview'
 import contentFetch from '@/admin/mixins/contentFetch'
 
 export default {
+  data() {
+    return {
+      windowHeight: 0,
+        window: {
+      width: 0,
+      height: 0
+    }
+     
+    }
+  },
+  created() {
+    window.addEventListener('resize', this.handleResize)
+    this.handleResize();
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.handleResize)
+  },
   name: 'home',
+   watch: {
+    windowHeight(newHeight, oldHeight) {
+     this.txt = `it changed to ${newHeight} from ${oldHeight}`;
+    }
+  },
+  methods: {
+    showexampleapp(width,height){
+       if(width > 1600 && height>800){
+         console.log(width);
+         return true
+       }
+       //onsole.log(width);
+      return false;
+    },
+    handleResize() {
+      this.window.width = window.innerWidth;
+      this.window.height = window.innerHeight;
+  
+    },
+  },
   mixins: [contentFetch],
   components: {
     appHeader,
@@ -60,7 +110,14 @@ export default {
     settings: {
       source: settingsRef,
       asObject: true
-    }
+    },
+    mounted() {
+    this.$nextTick(() => {
+      window.addEventListener('resize', () => {
+        this.windowHeight = window.innerHeight
+      });
+    })
+  },
   }
 }
 
@@ -130,8 +187,9 @@ export default {
       .smartphone {
   position: relative;
   width: 320px;
-  height: 65%;
+  height: 640px;
   margin: auto;
+  margin-left:10%;
   border: 16px black solid;
   border-top-width: 60px;
   border-bottom-width: 60px;
@@ -182,13 +240,25 @@ export default {
 .iframe-container iframe {
   position: absolute;
   width: 100%;
-  height: 560px;
+  height: 550px;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   
 }
+ .welcometext{
+     font-size: 100px; 
+    font-family:'suez'; 
+    color:#24E4C4;
+  }
+  .androiddownload{
+
+    background:transparent;
+    width:40%;
+    margin-right:50%;
+     margin-top:20%;
+  }
 
 
 @media (max-width: 800px) {
@@ -204,6 +274,11 @@ export default {
       padding: 15px 40px;
     }
   }
+   .welcometext{
+    font-size: 61px; 
+    font-family:'suez'; 
+    color:#24E4C4;
+  }
 }
 
 @media (max-width: 600px) {
@@ -212,5 +287,16 @@ export default {
     right: auto;
     text-align: center;
   }
+  .welcometext{
+    top:50%;
+    font-size: 61px; 
+    font-family:'suez'; 
+    color:#24E4C4;
+  }
+
+}
+@font-face {
+    font-family: 'suez'; /*a name to be used later*/
+    src: url('../assets/img/background.jpg'); /*URL to font*/
 }
 </style>

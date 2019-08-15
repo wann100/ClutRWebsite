@@ -11,7 +11,7 @@
        
         <div class="columns is-flex is-centered is-mobile">
           <figure class="column is-half">
-            <router-link to="/"><img :src="`${baseUrl}static/img/logo.png`" alt="Tamiat logo"></router-link>
+            <router-link to="/"><img :src="`${baseUrl}static/img/logo.png`" alt="Clutr llc logo"></router-link>
           </figure>
         </div>
 

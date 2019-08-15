@@ -2,10 +2,10 @@
   <section class="features">
     <div class="container">
       <h3 class="is-heading">Features and services</h3>
-      <p class="info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id felis et ipsum bibendum ultrices. Morbi vitae pulvinar velit. Sed aliquam dictum sapien, id sagittis augue malesuada eu.</p>
+      <p class="info"></p>
       <ul class="grid" v-if="services">
         <li v-for="service in services" :key="service['.key']">
-          <i v-if="service.icon" :class="service.icon"></i>
+          <i style="background-color:null; align-self: center" v-if="service.icon" :class="['fa', service.icon]" ></i>
           <h4 v-text="service.title"></h4>
           <p v-text="service.description"></p>
         </li>
@@ -50,7 +50,8 @@ export default {
     li {
       padding: 0 30px 10px 30px;
       flex-basis: 33%;
-      text-align: left;
+      text-align: center;
+      
       i {
         font-size: 64px;
         margin-bottom: 25px;
@@ -61,7 +62,7 @@ export default {
       }
       p {
         margin: 0;
-        text-align: left;
+        text-align: center;
       }
     }
   }

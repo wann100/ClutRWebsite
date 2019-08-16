@@ -60,8 +60,17 @@
            <h3>SSN:{{item.applicationinfo.ssn}}</h3>
            <h3>Team Size:{{item.applicationinfo.num_team}}</h3>
            <h3>Status:{{item.applicationinfo.status}}</h3>
-            <b-button variant="primary" @click="ApproveApplication(getuserinfo(item.applicationinfo.id),'isCleaner',true)" >Approve </b-button>
-         <b-button variant="danger" @click="DenyApplication(getuserinfo(item.applicationinfo.id),'isCleaner',false)" >Deny </b-button>
+           <div class="column">
+                <h6>Change this Update Applicant:</h6>
+                <quick-edit
+                startOpen 
+                  @input="UpdatetheApplication(item.applicationinfo.id,'message',item.applicationinfo.message)"
+                  v-model="item.applicationinfo.message"
+                  
+                ></quick-edit>
+              </div>
+            <b-button variant="primary" @click="ApproveApplication(item.applicationinfo.id,getuserinfo(item.applicationinfo.id),'isCleaner',true)" >Approve </b-button>
+         <b-button variant="danger" @click="DenyApplication(item.applicationinfo.id,'isCleaner',false)" >Deny </b-button>
          </div>
          <div class="column">
            <h1 style="margin:10px">Front of Id</h1>
@@ -171,7 +180,7 @@ export default {
     /**
      * This is called in order to approve applcation
      */
-    async ApproveApplication(currentUser,whichdetails,details){
+    async ApproveApplication(Applicationid,currentUser,whichdetails,details){
       //First update usersdetails so that they can login
        console.log(currentUser[0].uid)
         await  updateUserDetails(currentUser[0],whichdetails,details);
@@ -179,17 +188,24 @@ export default {
        await   updateApplication(currentUser[0].uid,"status",'approved');
           //Then update the screen by re loading the applications back in
           this.showNotification('success', 'Application has been approved')
-          this.gettheApplications();
+        await  this.gettheApplications();
  },
    /**
      * This is called in order to deny applcation
      */
-    async DenyApplication(currentUser,whichdetails,details){
+    async DenyApplication(Applicationid,whichdetails,details){
       //Then update the application status so that it doesnt show up on this menu
-       await   updateApplication(currentUser[0].uid,"status",'denied');
+       await   updateApplication(Applicationid,"status",'denied');
           //Then update the screen by re loading the applications back in
           this.showNotification('success', 'Application has been denied')
-          this.gettheApplications();
+         await  this.gettheApplications();
+ },
+
+  async UpdatetheApplication(currentUserid,whichdetails,details){
+   //await console.log(currentUser[0].uid)
+    await updateApplication(currentUserid,whichdetails,details);
+     this.showNotification('success', 'Applicant has been updated')
+      await this.gettheApplications();
  },
  addFilter () {
       this.activeFilters.push({

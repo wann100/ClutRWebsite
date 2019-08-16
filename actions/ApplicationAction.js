@@ -63,4 +63,12 @@ export function updateApplication(application_id, nameofitemtoupdate, item) {
         status: item
       });
   }
+  if (nameofitemtoupdate === "message") {
+    firebase
+      .database()
+      .ref(`applications/${application_id}/applicationDetails`)
+      .update({
+        message: item
+      });
+  }
 }

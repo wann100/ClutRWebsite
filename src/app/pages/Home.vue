@@ -8,8 +8,10 @@
      <div class="column">
       <span class="welcometext" style=""> The Clut<h1 style="display: inline; font-size:inherit;
     color:#B42521;letter-spacing: 2px;">R</h1> App</span>
-    <span class="welcometextbody" style=""> Cleaning Services at your fingertips</span>
        </div> 
+       <div class="column">
+             <span class="welcometextbody" style=""> Cleaning Services at your fingertips</span>
+       </div>
 
         <div class="columns"> 
           <div class="column"> 
@@ -322,14 +324,14 @@ export default {
     text-align: center;
   }
   .welcometext{
-    font-size: 61px; 
+    font-size: 55px; 
     font-weight: 900;
     font-family:'suez'; 
     color:#24E4C4;
     margin:0;
   }
      .welcometextbody{
-     font-size: 30px; 
+     font-size: 25px; 
     font-family:'suez'; 
     color:#24E4C4;
     font-weight: 900;

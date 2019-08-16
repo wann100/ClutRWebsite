@@ -258,7 +258,7 @@ export default {
      font-size: 130px; 
     font-family:'suez'; 
     color:#24E4C4;
-     text-shadow: -1px -2px 0px #FFff;
+     text-shadow: 1px 0px 0px #FFff, 1px 1px 2px black;
     font-weight: 900;
     margin-left:25%;
   }
@@ -268,7 +268,7 @@ export default {
     color:#24E4C4;
     font-weight: 900;
     margin-left:25%;
-     text-shadow: -1px -2px 0px white;
+     text-shadow: 1px 0px 0px white, 1px 1px 2px black;
 
   }
   .androiddownload{
@@ -305,7 +305,16 @@ export default {
     font-family:'suez'; 
     color:#24E4C4;
     font-weight: 900;
-     text-shadow: 1px 1px #FFff;
+     text-shadow:  1px 0px 0px #FFff, 1px 1px 2px black;
+
+  }
+   .welcometextbody{
+     font-size: 25px; 
+    font-family:'suez'; 
+    color:#24E4C4;
+    font-weight: 900;
+    margin:0;
+     text-shadow:  1px 0px 0px #FFff, 1px 1px 2px black;
 
   }
     .androiddownload{
@@ -329,6 +338,7 @@ export default {
     font-family:'suez'; 
     color:#24E4C4;
     margin:0;
+      text-shadow:  1px 0px 0px #FFff, 1px 1px 2px black;
   }
      .welcometextbody{
      font-size: 25px; 
@@ -336,7 +346,7 @@ export default {
     color:#24E4C4;
     font-weight: 900;
     margin:0;
-     text-shadow: -1px -2px 0px white;
+     text-shadow:  1px 0px 0px #FFff, 1px 1px 2px black;
 
   }
     .androiddownload{

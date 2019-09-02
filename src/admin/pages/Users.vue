@@ -76,7 +76,7 @@
    </div>
    <div class="column">
      <h6>is a cleaner </h6>
- <quick-edit @input="updateUser(item.userDetails,'isCleaner',item.userDetails.isCleaner)"     type="boolean" v-model="item.userDetails.isCleaner"></quick-edit>
+ <quick-edit @input="updateUser(item.userDetails,'isCleaner',item.userDetails.isCleaner)"     type="dropdown" v-model="item.userDetails.isCleaner"></quick-edit>
    </div>
     <div class="column">
      <h6>points </h6>
@@ -166,7 +166,7 @@ filtered () {
 
     },
     updateUser(currentUser,whichdetails,details){
-      console.log("i got challed");
+      //console.log("i got challed");
       updateUserDetails(currentUser,whichdetails,details);
       this.getusers()
 

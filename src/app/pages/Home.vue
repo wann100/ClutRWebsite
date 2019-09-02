@@ -12,9 +12,11 @@
        <div class="column">
              <span class="welcometextbody" style=""> Cleaning Services at your fingertips</span>
        </div>
-
+ 
         <div class="columns"> 
           <div class="column"> 
+
+          
 <div   v-if="showexampleapp(window.width,window.height)"  class="smartphone">
  <div class="iframe-container">
 <iframe src="https://xd.adobe.com/embed/d6b069f2-0abc-4404-6536-50a50b9d632d-a081/" scrolling="no" style ="overflow:hidden;"></iframe>
@@ -258,17 +260,17 @@ export default {
      font-size: 130px; 
     font-family:'suez'; 
     color:#24E4C4;
-     text-shadow: 1px 0px 0px #FFff, 1px 1px 2px black;
-    font-weight: 900;
+        text-shadow:  rgba(0, 0, 0, 0.4) 0px 4px 5px;
+    font-weight: 500;
     margin-left:25%;
   }
    .welcometextbody{
      font-size: 40px; 
     font-family:'suez'; 
     color:#24E4C4;
-    font-weight: 900;
+    font-weight: 500;
     margin-left:25%;
-     text-shadow: 1px 0px 0px white, 1px 1px 2px black;
+      text-shadow:  rgba(0, 0, 0, 0.4) 0px 4px 5px;
 
   }
   .androiddownload{
@@ -301,20 +303,21 @@ export default {
     }
   }
    .welcometext{
-    font-size: 61px; 
+    font-size: 55px; 
     font-family:'suez'; 
     color:#24E4C4;
+     text-align: center;
     font-weight: 900;
-     text-shadow:  1px 0px 0px #FFff, 1px 1px 2px black;
+     text-shadow:  rgba(0, 0, 0, 0.4) 0px 4px 5px;
 
   }
    .welcometextbody{
-     font-size: 25px; 
+     font-size: 15px; 
     font-family:'suez'; 
     color:#24E4C4;
     font-weight: 900;
     margin:0;
-     text-shadow:  1px 0px 0px #FFff, 1px 1px 2px black;
+       text-shadow:  rgba(0, 0, 0, 0.4) 0px 4px 5px;
 
   }
     .androiddownload{
@@ -334,19 +337,19 @@ export default {
   }
   .welcometext{
     font-size: 55px; 
-    font-weight: 900;
+    font-weight: 500;
     font-family:'suez'; 
     color:#24E4C4;
     margin:0;
-      text-shadow:  1px 0px 0px #FFff, 1px 1px 2px black;
+        text-shadow:  rgba(0, 0, 0, 0.4) 0px 4px 5px;
   }
      .welcometextbody{
      font-size: 25px; 
-    font-family:'suez'; 
+    
     color:#24E4C4;
-    font-weight: 900;
+    font-weight: 500;
     margin:0;
-     text-shadow:  1px 0px 0px #FFff, 1px 1px 2px black;
+        text-shadow:  rgba(0, 0, 0, 0.4) 0px 4px 5px;
 
   }
     .androiddownload{
@@ -368,6 +371,6 @@ export default {
 }
 @font-face {
     font-family: 'suez'; /*a name to be used later*/
-    src: url(require('@/app/assets/fonts/SuezOne-Regular.ttf')); /*URL to font*/
+    src: url('../assets/fonts/SuezOne-Regular.ttf'); /*URL to font*/
 }
 </style>

@@ -17,6 +17,7 @@ import FieldEdit from '@/admin/pages/content/fields/FieldEdit'
 import Contents from '@/admin/pages/content/contents/Contents'
 import ContentsNew from '@/admin/pages/content/contents/ContentsNew'
 import ContentsEdit from '@/admin/pages/content/contents/ContentsEdit'
+import  Prices from '@/admin/pages/prices'
 
 const routes = [
   {
@@ -49,6 +50,10 @@ const routes = [
       {
         path:'appointments',
         component:Appointments,
+      },
+      {
+        path:'Service Prices',
+        component:Prices,
       },
       {
         path: 'routing',

@@ -98,6 +98,11 @@ export default {
           path: '/admin/settings',
           icon: 'fa-gear'
         },
+        {
+          name: 'App Services/Prices',
+          path: '/admin/prices',
+          icon: 'fa-money'
+        },
       ],
       helpbtn: {
         name: 'Help',

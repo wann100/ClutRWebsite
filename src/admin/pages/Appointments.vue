@@ -8,7 +8,7 @@
       </div>
     </transition>
 
-    <h2>Appointments</h2>
+    <h2 style="margin-left:40%">Appointments</h2>
     <div class="box">
       <div class="columns">
         <div class="column">

@@ -8,98 +8,131 @@
       </div>
     </transition>
 
-    <h2>Prices</h2>
+    <h2 style="margin-left:40%">Prices</h2>
     <div class="box">
       <div class="columns">
         <div class="column">
-        <select v-model="filteredProperty">
-      <option value="firstname">First Name</option>
-       <option value="lastname">Last Name</option>
-       <option value="email">Email</option>
-      <option value="uid">uid</option>
-     
-    </select>
-    <input placeholder="filter value" v-model="query">    
-    <button @click="addFilter">add filter</button>
-      <hr>
-  <table v-if="activeFilters.length">
-    <tr style="width: 100px">
-      <th colspan="3">Filters in use:</th>
-    </tr>
-    <tr v-for="(filter, index) in activeFilters" :key="index">
-      <td>{{ filter.name }}:</td>
-      <td>{{ filter.value }}</td>
-      <td style="padding-left: 10px;">
-        <a href="#" @click.prevented=removeFilter(index)>
-          remove
-        </a>
-      </td>
-    </tr>
-  </table>
-  <hr v-if="activeFilters.length">
-  
-
-  
-        </div>
-        </div>
-<a class="img-container" v-for="(item, key) in users" :key="key"   >
-<!--  This is how you create a collapsible list using the key and array !-->
-  <div class="columns">
-         <b-button    v-b-toggle="'collapse-'+key"  variant="primary">View: {{item.userDetails.firstname+item.userDetails.lastname}}</b-button>       
-   </div>
-   <b-collapse    :id="'collapse-'+key"  >
-    <b-card>
- <div class="columns">
-    <h4 style="margin-top:4%">Userinfo</h4>
-     
-        <div class="column">
-          <h6>First Name</h6>
          
-          <quick-edit @input="updateUser(item.userDetails,'firstname',item.userDetails.firstname)" v-model="item.userDetails.firstname"></quick-edit>
-          
-     </div>
-    <div class="column">
-  <h6>Last Name</h6>
-   <quick-edit  @input="updateUser(item.userDetails,'lastname',item.userDetails.lastname)" v-model="item.userDetails.lastname"></quick-edit>
-   </div>
-      <div class="column">
-  <h6>Phone </h6>
- <quick-edit @input="updateUser(item.userDetails,'phone',item.userDetails.phone)"   v-model="item.userDetails.phone"></quick-edit>
-   </div>
-       <div class="column">
-  <h6>Email </h6>
- <h6>{{item.userDetails.email}}</h6>
-   </div>
-         <div class="column">
-  <h6>rating </h6>
- <h6>{{item.userDetails.rating}}/5</h6>
-   </div>
-   <div class="column">
-     <h6>is a cleaner </h6>
- <quick-edit @input="updateUser(item.userDetails,'isCleaner',item.userDetails.isCleaner)"     type="dropdown" v-model="item.userDetails.isCleaner"></quick-edit>
-   </div>
-    <div class="column">
-     <h6>points </h6>
-  <quick-edit @input="updateUser(item.userDetails,'points',item.userDetails.points)"   v-model="item.userDetails.points"></quick-edit>
-   </div>
-    
-     </div>
-      </b-card></b-collapse> </a>
+
+           <div class="columns">
+              <div class="column">
+                <h6>Service 1 Name :</h6>
+                <quick-edit class="cleanerid" v-model="services.service1Name" @input="updateservices('service1Name',services.service1Name)"></quick-edit>
+              </div>
+               <div class="column">
+                 <h6>Service 1 Description :</h6>
+                <quick-edit class="cleanerid" v-model="services.service1Description" @input="updateservices('service1Description',services.service1Description)"></quick-edit>
+              </div>
+              <div class="column">
+                 <h6>Service 1 Price :</h6>
+                <quick-edit class="cleanerid" v-model="services.service1Price" @input="updateservices('service1Price',services.service1Price)"></quick-edit>
+              </div>
+               <div class="column">
+                 <h6>Service 1 Price Per Bath for apartments:</h6>
+                <quick-edit class="cleanerid" v-model="services.service1PricePerBathApt" @input="updateservices('service1PricePerBathApt',services.service1PricePerBathApt)"></quick-edit>
+              </div>
+  <div class="column">
+                 <h6>Service 1 Price Per Bath for House:</h6>
+                <quick-edit class="cleanerid" v-model="services.service1PricePerBedHouse" @input="updateservices('service1PricePerBedHouse',services.service1PricePerBedHouse)"></quick-edit>
+              </div>
+                <div class="column">
+                 <h6>Service 1 Price Per Bedroom for apartments:</h6>
+                <quick-edit class="cleanerid" v-model="services.service1PricePerBedApt" @input="updateservices('service1PricePerBedApt',services.service1PricePerBedApt)" ></quick-edit>
+              </div>
+  <div class="column">
+                 <h6>Service 1 Price Per Bedroom for House:</h6>
+                <quick-edit class="cleanerid" v-model="services.service1PricePerBedHouse" @input="updateservices('service1PricePerBedHouse',services.service1PricePerBedHouse)"></quick-edit>
+              </div>
+              
+              
+              </div>
+
+               <div class="columns">
+              <div class="column">
+                <h6>Service 2 Name :</h6>
+                <quick-edit class="cleanerid" v-model="services.service2Name" @input="updateservices('service2Name',services.service2Name)"></quick-edit>
+              </div>
+               <div class="column">
+                 <h6>Service 2 Description :</h6>
+                <quick-edit class="cleanerid" v-model="services.service2Description" @input="updateservices('service2Description',services.service2Description)"></quick-edit>
+              </div>
+              <div class="column">
+                 <h6>Service 2 Price :</h6>
+                <quick-edit class="cleanerid" v-model="services.service2Price" @input="updateservices('service2Price',services.service2Price)"></quick-edit>
+              </div>
+               <div class="column">
+                 <h6>Service 2 Price Per Bath for apartments:</h6>
+                <quick-edit class="cleanerid" v-model="services.service2PricePerBathApt" @input="updateservices('service2PricePerBathApt',services.service2PricePerBathApt)"></quick-edit>
+              </div>
+  <div class="column">
+                 <h6>Service 2 Price Per Bath for House:</h6>
+                <quick-edit class="cleanerid" v-model="services.service2PricePerBedHouse" @input="updateservices('service2PricePerBedHouse',services.service2PricePerBedHouse)"></quick-edit>
+              </div>
+                <div class="column">
+                 <h6>Service 2 Price Per Bedroom for apartments:</h6>
+                <quick-edit class="cleanerid" v-model="services.service2PricePerBedApt" @input="updateservices('service2PricePerBedApt',services.service2PricePerBedApt)" ></quick-edit>
+              </div>
+  <div class="column">
+                 <h6>Service 2 Price Per Bedroom for House:</h6>
+                <quick-edit class="cleanerid" v-model="services.service2PricePerBedHouse" @input="updateservices('service2PricePerBedHouse',services.service2PricePerBedHouse)"></quick-edit>
+              </div>
+              
+              
+              </div> 
+
+               <div class="columns">
+              <div class="column">
+                <h6>Service 3 Name :</h6>
+                <quick-edit class="cleanerid" v-model="services.service3Name" @input="updateservices('service3Name',services.service3Name)"></quick-edit>
+              </div>
+               <div class="column">
+                 <h6>Service 3 Description :</h6>
+                <quick-edit class="cleanerid" v-model="services.service3Description" @input="updateservices('service3Description',services.service3Description)"></quick-edit>
+              </div>
+              <div class="column">
+                 <h6>Service 3 Price :</h6>
+                <quick-edit class="cleanerid" v-model="services.service3Price" @input="updateservices('service3Price',services.service3Price)"></quick-edit>
+              </div>
+               <div class="column">
+                 <h6>Service 3 Price Per Bath for apartments:</h6>
+                <quick-edit class="cleanerid" v-model="services.service3PricePerBathApt" @input="updateservices('service3PricePerBathApt',services.service3PricePerBathApt)"></quick-edit>
+              </div>
+  <div class="column">
+                 <h6>Service 3 Price Per Bath for House:</h6>
+                <quick-edit class="cleanerid" v-model="services.service3PricePerBedHouse" @input="updateservices('service3PricePerBedHouse',services.service3PricePerBedHouse)"></quick-edit>
+              </div>
+                <div class="column">
+                 <h6>Service 3 Price Per Bedroom for apartments:</h6>
+                <quick-edit class="cleanerid" v-model="services.service3PricePerBedApt" @input="updateservices('service3PricePerBedApt',services.service3PricePerBedApt)" ></quick-edit>
+              </div>
+  <div class="column">
+                 <h6>Service 3 Price Per Bedroom for House:</h6>
+                <quick-edit class="cleanerid" v-model="services.service3PricePerBedHouse" @input="updateservices('service3PricePerBedHouse',services.service3PricePerBedHouse)"></quick-edit>
+              </div>
+              
+              
+              </div> 
 
 
-     </div>
-    
+         
+        </div>
+
+        <!-- how you get the userimage {{ this.applications[0].Idurl[0] }} !-->
       </div>
+
     </div>
+  </div>
 </template>
 
+
 <script>
+
+
+import { getServices,updateServices } from "@/../actions";
 import firebase from "firebase/app";
 import "firebase/storage";
 import { demoData } from "@/../tamiat.config.json";
-import {updateUserDetails,userDetailsFetch} from "@/../actions"
 import notifier from "@/admin/mixins/notifier";
-import QuickEdit from 'vue-quick-edit';
 import {
   settingsRef,
   mediaRef,
@@ -113,88 +146,68 @@ import _ from "lodash";
 
 export default {
   data() {
-    return { 
-        users:null,
-        currentUser: firebase.auth().currentUser,
-        filteredProperty: 'email',
-        query:'',
-        activeFilters: [],
-
-
-     };
-  },
-  firebase: {
-    settings: settingsRef,
-    media: mediaRef,
-    nav: navRef,
-    fields: fieldsRef,
-    contents: contentsRef,
-    routes: routesRef
+    return {
+      services: null,
+      currentUser: firebase.auth().currentUser,
+      filteredProperty: "id",
+      query: "",
+      activeFilters: []
+    };
   },
   mixins: [notifier],
-   computed: {
-    
-  },
-  components: { QuickEdit },
   methods: {
-filtered () {
-      var filtered =this.users;
+    filtered() {
+      var filtered = this.services;
       this.activeFilters.forEach(filter => {
-        
         filtered = filtered.filter(record => {
-          console.log(record["userDetails"][filter.name]);
-          return filter.name === 'name'
-            ? new RegExp(filter.value, 'i').test(record["userDetails"][filter.name])
-            : record["userDetails"][filter.name] == filter.value; 
-            console.log(filter.value);
-             //onsole.log(record);
-        })
-        
-      })
-     // console.log(filtered);
+          return filter.name === "name"
+            ? new RegExp(filter.value, "i").test(record[filter.name])
+            : record[filter.name] == filter.value;
+          console.log(filter.value);
+          //onsole.log(record);
+        });
+      });
+      // console.log(filtered);
       console.log(filtered);
-      return this.users = filtered
+      return (this.appointments = filtered);
     },
-    getusers(){
-
-        this.users = userDetailsFetch();
-       // console.log(this.users);
-        if(this.users!=null){
-            this.showNotification('success', 'Users Dowloaded')
-        }
-
-
-    },
-    updateUser(currentUser,whichdetails,details){
-      //console.log("i got challed");
-      updateUserDetails(currentUser,whichdetails,details);
-      this.getusers()
-
-    },
-     addFilter () {
+    addFilter() {
       this.activeFilters.push({
         name: this.filteredProperty,
         value: this.query
-      })
+      });
       this.filtered();
-      this.query = ''
+      this.query = "";
     },
-    removeFilter (idx) {
-      this.activeFilters.splice(idx, 1)
-      this.getusers();
+    removeFilter(idx) {
+      this.activeFilters.splice(idx, 1);
+      this.getAllAppointments("approved");
     },
 
+    getAllServices() {
+      this.services = getServices();
+      // console.log(this.users);
+      if (this.services != null) {
+        this.showNotification("success", "services have been downloaded");
+      }
+    },
 
+    updateservices(whichdetails, details) {
+      updateServices(whichdetails,details);
+      //this.getAllAppointments("approved");
+      this.showNotification("success", "services have been updated");
+    },
+    FilterFunction(filter_criteria) {},
   },
-   beforeMount(){
-    this.getusers()
- },
+  beforeMount() {
+    this.getAllServices();
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 .column > div {
-  margin-top: 15px;
+  margin-top: 35px;
   &:first-child {
     margin-top: 0px;
   }
@@ -206,16 +219,25 @@ button {
 }
 
 .searchbox {
-    width:40%;
-    font-weight: bold;
-    border-radius: 5px
+  width: 40%;
+  font-weight: bold;
+  border-radius: 5px;
 }
-input{
-  width:80%,
-
+.box {
+  width: 120%;
+  margin-left: -10%;
 }
-.columns{
-    margin-top:40px;
+.column {
+  text-align: center;
+}
 
+.columns {
+  margin-top: 40px;
+}
+.cleanerid {
+  font-size: 3mm;
+}
+h4 {
+  font-size: 4mm;
 }
 </style>

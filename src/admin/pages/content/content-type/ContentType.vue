@@ -422,6 +422,7 @@ export default {
     selectContentType (option) {
       if (option.id === '') return
 
+      this.showNotification('success', 'Content type changed')
       this.selectedContentType = option
       this.selectedContent = this.contents.filter(content => {
         if (content.name === option.label) {

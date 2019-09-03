@@ -123,7 +123,7 @@ export default {
         action: 'add',
         key: ''
       },
-      defaultRoutes: ['/', '/admin', '/login'],
+      defaultRoutes: ['/', '/admin', '/login',],
       templates
     }
   },

@@ -106,12 +106,12 @@ export default {
             console.log(message);
             return message
         },
-        uploadFile(file, metadata) {
+        async uploadFile(file, metadata) {
             if (file === null) return false
             const pathToUpload = this.currentChannel.id
             const ref = this.$parent.getMessageRef()
             const filePath = this.getPath() + '/' + uuidV4() + '.jpg'
-
+            var fileUrl;
             // upload to Firebase storegae
             this.uploadTask = this.storageRef.child(filePath).put(file, metadata)
             this.uploadState = 'uploading'
@@ -125,12 +125,17 @@ export default {
                 this.uploadState = 'error'
                 this.uploadTask = null
                 // error
-            }, () => {
+            }, async () => {
                 // finish
                 this.uploadState = 'done'
                 this.$refs.file_modal.resetForm()
-
-                const fileUrl = this.uploadTask.snapshot.downloadURL
+                console.log(filePath)
+                // console.log(this.storageRef.child(filePath).getDownloadURL());
+               await this.storageRef.child(filePath).getDownloadURL().then(url => {
+          fileUrl = url;
+  });
+                 console.log(this.uploadTask.snapshot);
+                //const fileUrl = this.uploadTask.snapshot.downloadURL
                 this.sendFileMessage(fileUrl, ref, pathToUpload)
             })
             return true

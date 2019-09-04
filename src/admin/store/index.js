@@ -13,6 +13,7 @@ import menu from './modules/menu'
  */
 Vue.use(Vuex)
 
+
 /**
  * Export
  */

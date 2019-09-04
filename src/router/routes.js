@@ -18,7 +18,9 @@ import Contents from '@/admin/pages/content/contents/Contents'
 import ContentsNew from '@/admin/pages/content/contents/ContentsNew'
 import ContentsEdit from '@/admin/pages/content/contents/ContentsEdit'
 import Prices from '@/admin/pages/Prices'
-
+import Tchat from '@/admin/pages/Tchat'
+import firebase from "firebase/app";
+import "firebase/storage";
 const routes = [
   {
     path: '/',
@@ -63,6 +65,18 @@ const routes = [
         path: 'media',
         component: Media
       },
+      {
+        path: 'chat',
+        name: 'Chat',
+        component: Tchat,
+        beforeEnter: (to, from, next) => {
+            if (!firebase.auth().currentUser) {
+                next('/login')
+            } else {
+                next()
+            }
+        }
+    },
       {
         path: 'content',
         component: ContentType,

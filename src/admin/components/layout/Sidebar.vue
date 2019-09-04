@@ -103,6 +103,11 @@ export default {
           path: '/admin/prices',
           icon: 'fa-money'
         },
+        {
+          name: 'Chat',
+          path: '/admin/chat',
+          icon: 'fa-chat'
+        }
       ],
       helpbtn: {
         name: 'Help',

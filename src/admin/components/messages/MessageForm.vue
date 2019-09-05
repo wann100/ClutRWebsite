@@ -183,7 +183,7 @@ export default {
         padding: 10px;
         padding-top: 20px;
         height: 210px;
-        left: 300px;
+        left: 41%;
         right: 0;
     }
 

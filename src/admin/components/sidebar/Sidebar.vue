@@ -26,13 +26,13 @@ export default {
     position: fixed;
     display: flex;
     flex-flow: column nowrap;
-    width: 300px;
+    width: 35%;
     padding: 10px;
     top: 0;
-    left: 0;
+    left: 6.5%;
     bottom: 0;
     background-color: $color_matterhorn;
-    padding-top: 110px;
+    padding-top: 4%;
 }
 
 h1{

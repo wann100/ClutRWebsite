@@ -126,6 +126,8 @@ $sidebarColor: #3b9169;
 $sidebarWidth: 115px;
 
 #sidebar {
+  position:fixed;
+  top:0;
   width: $sidebarWidth;
   min-width: 45px;
   z-index: 1024 - 1;

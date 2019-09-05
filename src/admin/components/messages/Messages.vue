@@ -116,8 +116,9 @@ export default {
 @import '../main.scss';
     .messages__container {
         position: relative;
-        padding: 10px 30px 210px 30px;
-        margin-left: 300px;
+        height: 100%;
+        padding: 100px 100px 210px 30px;
+        margin-left: 33%;
         min-height: 100%;
     }
 

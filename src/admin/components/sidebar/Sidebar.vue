@@ -29,7 +29,7 @@ export default {
     width: 35%;
     padding: 10px;
     top: 0;
-    left: 6.5%;
+    left: 6.78%;
     bottom: 0;
     background-color: $color_matterhorn;
     padding-top: 4%;

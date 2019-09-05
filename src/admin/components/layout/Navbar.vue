@@ -83,6 +83,10 @@ export default {
           name: 'Appointments',
           path: '/admin/appointments'
         },
+        {
+          name: 'Chat',
+          path: '/admin/chat'
+        },
                 {
           name: 'Settings',
           path: '/admin/settings'

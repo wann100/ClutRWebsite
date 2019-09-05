@@ -103,7 +103,7 @@ export default {
             } else {
                 message.image = fileUrl
             }
-            console.log(message);
+            //console.log(message);
             return message
         },
         async uploadFile(file, metadata) {
@@ -129,12 +129,12 @@ export default {
                 // finish
                 this.uploadState = 'done'
                 this.$refs.file_modal.resetForm()
-                console.log(filePath)
+               //o console.log(filePath)
                 // console.log(this.storageRef.child(filePath).getDownloadURL());
                await this.storageRef.child(filePath).getDownloadURL().then(url => {
           fileUrl = url;
   });
-                 console.log(this.uploadTask.snapshot);
+                // console.log(this.uploadTask.snapshot);
                 //const fileUrl = this.uploadTask.snapshot.downloadURL
                 this.sendFileMessage(fileUrl, ref, pathToUpload)
             })

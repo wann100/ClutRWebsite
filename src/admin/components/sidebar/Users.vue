@@ -7,7 +7,7 @@
             @click.prevent="changeChannel(user)">
             <div class="event">
                 <div class="label">
-                    <img :src="user.userDetails.avatar" alt="avatar">
+                    <img :src="user.avatar" alt="avatar">
                 </div>
                 <div class="content">
                     <span class="ui empty circular label connection__label"
@@ -76,7 +76,7 @@ export default {
                   
                     
                     this.privateMessagesRef.child(channelId).on('value', (snap) => {
-                        console.log( snap);
+                        //console.log( snap);
                         this.handleNotifications(channelId, this.currentChannel.id, this.notifCount, snap)
                     })
                 }
@@ -118,7 +118,7 @@ export default {
             this.conntectedRef.off()
         },
         isOnline(user) {
-            console.log(user.status);
+            //console.log(user.status);
             return user.status === 'online'
         },
         changeChannel(user) {

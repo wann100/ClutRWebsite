@@ -106,7 +106,7 @@ export default {
         {
           name: 'Chat',
           path: '/admin/chat',
-          icon: 'fa-chat'
+          icon: 'fa-comments-o'
         }
       ],
       helpbtn: {

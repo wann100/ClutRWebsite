@@ -174,7 +174,7 @@ export default {
         
       })
      // console.log(filtered);
-       console.log(filtered);
+       //console.log(filtered);
       return this.applications = filtered
     },
     /**
@@ -182,7 +182,7 @@ export default {
      */
     async ApproveApplication(Applicationid,currentUser,whichdetails,details){
       //First update usersdetails so that they can login
-       console.log(currentUser[0].uid)
+      // console.log(currentUser[0].uid)
         await  updateUserDetails(currentUser[0],whichdetails,details);
       //Then update the application status so that it doesnt show up on this menu
        await   updateApplication(currentUser[0].uid,"status",'approved');

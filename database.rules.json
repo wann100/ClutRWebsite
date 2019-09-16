@@ -5,7 +5,8 @@
     "$uid": {
        ".read": "$uid === auth.uid || root.child('users').child(auth.uid).child('userDetails/role').val() =='admin'",
        ".write": "$uid === auth.uid || root.child('users').child(auth.uid).child('userDetails/role').val() =='admin'"
-     }
+     },
+     ".validate": true
 
    } ,
       "appointments":{
@@ -45,23 +46,28 @@
   },
   "nav": {
         ".read": true,
-    	  ".write": "auth != null && root.child('users').child(auth.uid).child('userDetails/role').val() ==='admin' ",
+        ".write": "auth != null && root.child('users').child(auth.uid).child('userDetails/role').val() ==='admin' ",
+        ".validate": true,
   },
   "fields": {
         ".read": true,
      ".write": "auth != null && root.child('users').child(auth.uid).child('userDetails/role').val() ==='admin' ",
+     ".validate": true,
   },
   "contents": {
         ".read": true,
       ".write": "auth != null && root.child('users').child(auth.uid).child('userDetails/role').val() ==='admin' ",
+      ".validate": true,
   },
   "routes": {
        ".read": true,
      ".write": "auth != null && root.child('users').child(auth.uid).child('userDetails/role').val() ==='admin' ",
+     ".validate": true,
   },
   "other": {
        ".read": true,
       ".write": "auth != null && root.child('users').child(auth.uid).child('userDetails/role').val() ==='admin' ",
+      ".validate": false
   },
     "channels": {
       ".read": "auth != null",

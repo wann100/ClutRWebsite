@@ -66,10 +66,10 @@ export default {
           path: '/admin/routing'
         },
     
-        // {
-        //   name: 'Database',
-        //   path: '/admin/database'
-        // },
+        {
+          name: 'Database',
+          path: '/admin/database'
+        },
 
                 {
           name: 'Applications',

@@ -66,6 +66,10 @@ const routes = [
         component: Media
       },
       {
+        path: 'database',
+        component: Database
+      },
+      {
         path: 'chat',
         name: 'Chat',
         component: Tchat,

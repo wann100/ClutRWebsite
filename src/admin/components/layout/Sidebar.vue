@@ -71,11 +71,11 @@ export default {
           path: '/admin/media',
           icon: 'fa-picture-o'
         },
-        // {
-        //   name: 'Database',
-        //   path: '/admin/database',
-        //   icon: 'fa-database'
-        // },
+        {
+          name: 'Database',
+          path: '/admin/database',
+          icon: 'fa-database'
+        },
 
                 {
           name: 'Users',
